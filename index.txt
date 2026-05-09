@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SynergyOS - Optimized Windows for Gamers</title>
+    <!-- Fonts: Anton for headings, Inter for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo-section">
+                    <!-- LOGO PLACEHOLDER - Drag and drop your logo here -->
+                    <div class="logo-placeholder">
+                        <span>LOGO</span>
+                    </div>
+                    <span class="brand-name">SynergyOS</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact" class="btn-primary">Get Started</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Machine. Your Rules.</h1>
+                <p>SynergyOS is a completely redesigned Windows experience built for gamers. Faster, private, and fully customizable.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary btn-large">Download Playbook</button>
+                    <button class="btn-secondary btn-large">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="glow-box"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Why SynergyOS?</h2>
+            <div class="features-grid">
+                <!-- Feature 1: Redesigned Look -->
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>A Completely Redesigned Visual Experience</h3>
+                    <p>Modern, dark, and uncompromising. Built to suit a real gamer machine, not a rubbish office PC.</p>
+                </div>
+
+                <!-- Feature 2: Performance -->
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Performant - Real FPS Gains</h3>
+                    <p>Scheduling, memory, kernel, GPU & CPU tuning. Improved responsiveness, tighter frame pacing and no stutters accompanied by measurable FPS boost.</p>
+                </div>
+
+                <!-- Feature 3: Privacy -->
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Private - Privacy Hardened</h3>
+                    <p>Telemetry, advertising IDs, behavioural tracking - all neutralised at the source. You shouldn't have to ask Microsoft for permission to be left alone.</p>
+                </div>
+
+                <!-- Feature 4: Customizable -->
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Customisable - Fully in Your Control</h3>
+                    <p>Keep Defender, Microsoft Store, and Xbox. Or don't? SynergyOS is opinionated, you decide what stays and what goes.</p>
+                </div>
+
+                <!-- Feature 5: Convenient -->
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Convenient - No Fresh Install Required</h3>
+                    <p>SynergyOS is delivered as a playbook. Apply it to your existing Windows install - no reinstalling apps and games or formatting your drives.</p>
+                </div>
+
+                <!-- Feature 6: Bundled -->
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Bundled - VCRedist + DirectX Pre-installed</h3>
+                    <p>Pre-installed runtimes that 99% of games depend on. No first-launch error popups. No hunting for missing DLLs. Just play.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Download the Playbook</h4>
+                    <p>Get the SynergyOS playbook file</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Apply to Your System</h4>
+                    <p>Run on your existing Windows install</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Optimize & Customize</h4>
+                    <p>Choose what stays, what goes</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Experience the Difference</h4>
+                    <p>More FPS, better performance, total privacy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stat-item">
+                <h3>+15%</h3>
+                <p>Average FPS Improvement</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Telemetry Removed</p>
+            </div>
+            <div class="stat-item">
+                <h3>0s</h3>
+                <p>Setup Time Required</p>
+            </div>
+            <div class="stat-item">
+                <h3>∞</h3>
+                <p>Customization Options</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots / Preview placeholders -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <h2>SEE IT IN ACTION.</h2>
+            <p class="muted">Preview placeholders — click or drop images to replace them later.</p>
+
+            <div class="screenshot-grid">
+                <div class="screenshot-placeholder" data-label="Customization Options" data-id="1">
+                    <div class="placeholder-inner">Drop image or click to upload</div>
+                    <div class="screenshot-caption">Customization Options</div>
+                </div>
+                <div class="screenshot-placeholder" data-label="Installation Start" data-id="2">
+                    <div class="placeholder-inner">Drop image or click to upload</div>
+                    <div class="screenshot-caption">Installation Start</div>
+                </div>
+                <div class="screenshot-placeholder" data-label="Installation Finish" data-id="3">
+                    <div class="placeholder-inner">Drop image or click to upload</div>
+                    <div class="screenshot-caption">Installation Finish</div>
+                </div>
+
+                <div class="screenshot-placeholder" data-label="General Look" data-id="4">
+                    <div class="placeholder-inner">Drop image or click to upload</div>
+                    <div class="screenshot-caption">General Look</div>
+                </div>
+                <div class="screenshot-placeholder" data-label="Resource Usage" data-id="5">
+                    <div class="placeholder-inner">Drop image or click to upload</div>
+                    <div class="screenshot-caption">Resource Usage</div>
+                </div>
+                <div class="screenshot-placeholder" data-label="Extra Features" data-id="6">
+                    <div class="placeholder-inner">Drop image or click to upload</div>
+                    <div class="screenshot-caption">Extra Features</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Reclaim Your System?</h2>
+            <p>Download the SynergyOS playbook and transform your gaming experience.</p>
+            <button class="btn-primary btn-large">Get Started Now</button>
+        </div>
+    </section>
+
+    <!-- Download Panel (FSOS-inspired) -->
+    <section class="download-panel" id="download">
+        <div class="container panel-grid">
+            <div class="panel-left">
+                <div class="panel-badge">BUILD</div>
+                <h3 class="panel-title">SYNERGYOS R1 STABLE</h3>
+                <ul class="panel-meta">
+                    <li><strong>Filename</strong><span> SYNERGY-R1.apbx</span></li>
+                    <li><strong>Size</strong><span> 98.2 MB</span></li>
+                    <li><strong>Compatibility</strong><span> Win 11 (21H2+)</span></li>
+                    <li><strong>License</strong><span> Polyform • Non-Commercial</span></li>
+                </ul>
+                <div class="panel-verify">
+                    <small>Verify - SHA256</small>
+                    <code class="sha">adf33cc58b0514bd52f73218dc89a79c22a1bbf8d21a7f36b499b86b8e03d551</code>
+                </div>
+            </div>
+            <div class="panel-right">
+                <h4 class="panel-title-sm">DOWNLOADS</h4>
+                <div class="download-buttons">
+                    <button class="btn-primary btn-download">Download SynergyOS</button>
+                    <button class="btn-outline">Download Windows 11</button>
+                    <button class="btn-outline">Download AME Wizard</button>
+                    <button class="btn-outline">Autounattend (optional)</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table (FSOS-inspired) -->
+    <section class="compare-panel">
+        <div class="container">
+            <h2>LIKE DAY AND NIGHT.</h2>
+            <p class="muted">Windows 11 and SynergyOS compared side by side.</p>
+            <div class="compare-grid">
+                <div class="compare-card stock">
+                    <h4>STOCK WINDOWS 11</h4>
+                    <ul>
+                        <li>Telemetry & tracking enabled</li>
+                        <li>150+ background processes</li>
+                        <li>Bloatware pre-installed</li>
+                        <li>Ads, AI, sponsored apps</li>
+                        <li>Default office PC configuration</li>
+                    </ul>
+                </div>
+                <div class="compare-card synergy">
+                    <h4>SYNERGYOS</h4>
+                    <ul>
+                        <li>No tracking by Microsoft</li>
+                        <li>55-65 base processes</li>
+                        <li>Debloated and customizable</li>
+                        <li>Pure, ad-free system experience</li>
+                        <li>Tuned for gaming responsiveness</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SynergyOS</h4>
+                    <p>Windows optimized for gamers</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#docs">Documentation</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#discord">Discord</a></li>
+                        <li><a href="#github">GitHub</a></li>
+                        <li><a href="#twitter">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SynergyOS. Built for gamers, by gamers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
