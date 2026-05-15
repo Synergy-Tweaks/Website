@@ -38,7 +38,7 @@ The placeholder is clearly marked in `index.html` with a comment:
 
 ### Design Elements
 
-- **Color Scheme**: Cyan/Blue (#00d4ff) and Pink/Red (#ff006e) accents on dark backgrounds
+ - **Color Scheme**: Purple (#7C4DFF) and Lavender (#B388FF) accents on dark backgrounds
 - **Typography**: Modern sans-serif with gradient text effects
 - **Animations**: Smooth transitions, hover effects, and scroll-triggered animations
 - **Responsive**: Works on desktop, tablet, and mobile devices
@@ -59,9 +59,9 @@ The placeholder is clearly marked in `index.html` with a comment:
 Edit the CSS variables at the top of `styles.css`:
 ```css
 :root {
-    --primary-color: #00d4ff;      /* Cyan accent */
-    --secondary-color: #ff006e;    /* Pink/Red accent */
-    --dark-bg: #0a0e27;            /* Main background */
+    --primary-color: #7C4DFF;      /* Purple accent */
+    --secondary-color: #B388FF;    /* Lavender accent */
+    --dark-bg: #071022;            /* Main background */
     /* ... more variables ... */
 }
 ```
