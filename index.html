@@ -1,291 +1,590 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SynergyOS - Optimized Windows for Gamers</title>
-    <!-- Fonts: Anton for headings, Inter for body -->
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SynergyOS is a debloated, privacy-hardened Windows playbook for gamers. SynToolkit is its WinUI 3 control panel. Free, open source, no account.">
+<title>Synergy Tweaks — SynergyOS, SynToolkit and Windows tools</title>
+
+<meta property="og:title" content="Synergy Tweaks — SynergyOS">
+<meta property="og:description" content="A debloated, privacy-hardened Windows playbook for gamers, plus the toolkit that drives it.">
+<meta property="og:image" content="images/og.jpg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Synergy Tweaks">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Synergy Tweaks — SynergyOS">
+<meta name="twitter:description" content="A debloated, privacy-hardened Windows playbook for gamers, plus the toolkit that drives it.">
+<meta name="twitter:image" content="images/og.jpg">
+<meta name="twitter:site" content="@synergyos48">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SynergyOS",
+  "operatingSystem": "Windows 10, Windows 11",
+  "applicationCategory": "UtilitiesApplication",
+  "description": "A pre-tweaked, debloated and privacy-hardened Windows 10 and 11 modification for serious gamers.",
+  "url": "https://github.com/Synergy-Tweaks/SynergyOS",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Synergy Tweaks",
+    "url": "https://github.com/Synergy-Tweaks"
+  }
+}
+</script>
+<link rel="icon" type="image/png" sizes="64x64" href="data:image/png;base64,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">
+<link rel="preload" href="fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo-section">
-                    <!-- LOGO PLACEHOLDER - Drag and drop your logo here -->
-                    <div class="logo-placeholder">
-                        <span>LOGO</span>
-                    </div>
-                    <span class="brand-name">SynergyOS</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact" class="btn-primary">Get Started</a></li>
-                </ul>
-            </div>
+
+<div class="nav-wrap">
+  <nav class="nav">
+    <a href="#" class="nav-brand">
+      <div class="nav-brand-mark">
+        <img src="images/logo-sm.webp" alt="Synergy Tweaks logo" width="52" height="52" data-logo="true" decoding="async">
+      </div>
+      <span class="nav-brand-name">Synergy<span class="brand-tail"> Tweaks</span><span class="by">SynergyOS &amp; tools</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#features">Overview</a>
+      <a href="#projects">Projects</a>
+      <a href="#preview">Preview</a>
+      <a href="#download">Download</a>
+    </div>
+    <details class="nav-menu">
+      <summary aria-label="Open menu">Menu</summary>
+      <div class="nav-menu-links">
+        <a href="#features">Overview</a>
+        <a href="#projects">Projects</a>
+        <a href="#preview">Preview</a>
+        <a href="#download">Download</a>
+      </div>
+    </details>
+    <a href="#download" class="nav-cta"><span class="nav-cta-long">Get SynergyOS</span><span class="nav-cta-short">Download</span></a>
+  </nav>
+</div>
+
+<main id="main">
+
+<section class="hero">
+  <div class="hero-watermark" aria-hidden="true">
+    <img src="images/logo.webp" alt="" width="256" height="256" data-logo="true" class="hero-watermark-mark" aria-hidden="true" />
+  </div>
+  <div class="hero-badges">
+    <span class="chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+      Privacy-hardened Windows 10 &amp; 11
+    </span>
+    <span class="chip chip-warm">🎮 Built for gamers</span>
+  </div>
+  <h1 class="hero-title">
+    Windows...<br>
+    the way it <span class="sticker">should</span><br>
+    have been.
+  </h1>
+  <p class="hero-sub">
+    A pre-tweaked, debloated and privacy-hardened Windows 10 and 11 modification for serious gamers. <strong>SynergyOS</strong> is what your OS was supposed to be: fast, clean, responsive, and fully under your control.
+  </p>
+  <div class="hero-cta-row">
+    <a href="https://github.com/Synergy-Tweaks/SynergyOS/releases/download/1.7/SynergyOS.v0.7.apbx" data-repo="SynergyOS" data-ext=".apbx" class="btn-primary download-latest">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+      Download SynergyOS
+    </a>
+    <a href="#features" class="btn-secondary">
+      What's Inside
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </a>
+    <div class="hero-downloads">
+      <span data-field="os-downloads">7.9k downloads</span>
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+    </div>
+  </div>
+  <div class="hero-meta">
+    <span>FREE</span>
+    <span style="color: var(--text-faint);">·</span>
+    <span>OPEN ACCESS</span>
+    <span style="color: var(--text-faint);">·</span>
+    <span>NO ACCOUNT REQUIRED</span>
+  </div>
+</section>
+
+<div class="warning-strip">
+  <svg class="warning-icon" width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.008v.008H12v-.008z"/></svg>
+  <div class="warning-content">
+    <a href="#modal-install" data-modal="install" style="color: inherit; text-decoration: none;"><strong>Read the docs before installing.</strong></a> SynergyOS supports stock Windows 10 <code>22H2</code> and Windows 11 <code>22H2</code>–<code>26H2</code>, LTSC included. Windows 11 <code>26H2</code> is experimental — 25H2 is the safest base.
+  </div>
+</div>
+
+<section class="section" id="stats">
+  <div class="section-eyebrow">The numbers</div>
+  <h2 class="section-title">Lighter. Faster.</h2>
+  <p class="section-lede">SynergyOS is one of the most well-optimized custom Windows builds available. Geared towards competitive gamers who expect nothing less but the best.</p>
+  <div class="stats-strip">
+    <div class="stat">
+      <div class="stat-label">Base Processes</div>
+      <div class="stat-value"><span class="count" data-count="55">55</span><span class="unit">- 65</span></div>
+      <div class="stat-sub">Process count cut in half</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Idle RAM Usage</div>
+      <div class="stat-value"><span class="count" data-count="1.2" data-decimals="1">1.2</span><span class="unit">- 2.3 GB</span></div>
+      <div class="stat-sub">Up to 52% less memory usage</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Install Footprint</div>
+      <div class="stat-value"><span class="count" data-count="17">17</span><span class="unit">GB</span></div>
+      <div class="stat-sub">3X lighter than Windows</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Tweaks Applied</div>
+      <div class="stat-value"><span class="accent count" data-count="1200">1200</span><span class="unit">+</span></div>
+      <div class="stat-sub">QoL, performance, privacy</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="section-eyebrow">The org</div>
+  <h2 class="section-title">Everything we build.</h2>
+  <p class="section-lede">Small team, Windows-only tools. All source is public on GitHub.</p>
+  <div class="projects">
+    <a class="project-card" href="https://github.com/Synergy-Tweaks/SynergyOS">
+      <span class="project-tag">Flagship</span>
+      <h3>SynergyOS</h3>
+      <p>The Windows modification playbook. Pre-tweaked, debloated, privacy-hardened.</p>
+      <span class="project-meta">Batchfile · Win 10 &amp; 11</span>
+    </a>
+    <a class="project-card" href="https://github.com/Synergy-Tweaks/SynToolkit">
+      <span class="project-tag">App</span>
+      <h3>SynToolkit</h3>
+      <p>WinUI 3 control panel for applying tweaks, fetching apps and managing profiles.</p>
+      <span class="project-meta">C# · Windows 11</span>
+    </a>
+    <a class="project-card" href="https://github.com/Synergy-Tweaks/Original-Post-Install">
+      <span class="project-tag">Scripts</span>
+      <h3>Original Post Install</h3>
+      <p>The original post-install batch scripts, kept for reference.</p>
+      <span class="project-meta">Batchfile</span>
+    </a>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="section-eyebrow">What's inside</div>
+  <h2 class="section-title">Your PC, turbo-charged.</h2>
+  <p class="section-lede">Not just another debloat script. It's a fully reworked Windows experience. Refined, tested, and tuned for performance from the ground up.</p>
+  <div class="features">
+
+    <div class="feature">
+      <div class="feature-head">
+        <div class="feature-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z"/></svg>
         </div>
-    </nav>
+        <div class="feature-num">Premium</div>
+      </div>
+      <h3 class="feature-title">Brand new look</h3>
+      <p class="feature-desc">A completely redesigned visual experience. Modern, dark, and uncompromising - built to suit a real gamer machine, not a rubbish office PC.</p>
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Your Machine. Your Rules.</h1>
-                <p>SynergyOS is a completely redesigned Windows experience built for gamers. Faster, private, and fully customizable.</p>
-                <div class="hero-buttons">
-                    <button class="btn-primary btn-large">Download Playbook</button>
-                    <button class="btn-secondary btn-large">Learn More</button>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="glow-box"></div>
-            </div>
-            <div class="pulse"></div>
+    <div class="feature highlight">
+      <div class="feature-head">
+        <div class="feature-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
         </div>
-    </section>
+        <div class="feature-num">Performative</div>
+      </div>
+      <h3 class="feature-title">Real FPS gains</h3>
+      <p class="feature-desc">Scheduling, memory, kernel, GPU &amp; CPU tuning. Improved responsiveness, tighter frame pacing and no stutters accompanied by measurable FPS boost.</p>
+    </div>
 
-    <!-- Features Grid -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2>Why SynergyOS?</h2>
-            <div class="features-grid">
-                <!-- Feature 1: Redesigned Look -->
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>A Completely Redesigned Visual Experience</h3>
-                    <p>Modern, dark, and uncompromising. Built to suit a real gamer machine, not a rubbish office PC.</p>
-                </div>
-
-                <!-- Feature 2: Performance -->
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Performant - Real FPS Gains</h3>
-                    <p>Scheduling, memory, kernel, GPU & CPU tuning. Improved responsiveness, tighter frame pacing and no stutters accompanied by measurable FPS boost.</p>
-                </div>
-
-                <!-- Feature 3: Privacy -->
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Private - Privacy Hardened</h3>
-                    <p>Telemetry, advertising IDs, behavioural tracking - all neutralised at the source. You shouldn't have to ask Microsoft for permission to be left alone.</p>
-                </div>
-
-                <!-- Feature 4: Customizable -->
-                <div class="feature-card">
-                    <div class="feature-icon">⚙️</div>
-                    <h3>Customisable - Fully in Your Control</h3>
-                    <p>Keep Defender, Microsoft Store, and Xbox. Or don't? SynergyOS is opinionated, you decide what stays and what goes.</p>
-                </div>
-
-                <!-- Feature 5: Convenient -->
-                <div class="feature-card">
-                    <div class="feature-icon">✨</div>
-                    <h3>Convenient - No Fresh Install Required</h3>
-                    <p>SynergyOS is delivered as a playbook. Apply it to your existing Windows install - no reinstalling apps and games or formatting your drives.</p>
-                </div>
-
-                <!-- Feature 6: Bundled -->
-                <div class="feature-card">
-                    <div class="feature-icon">📦</div>
-                    <h3>Bundled - VCRedist + DirectX Pre-installed</h3>
-                    <p>Pre-installed runtimes that 99% of games depend on. No first-launch error popups. No hunting for missing DLLs. Just play.</p>
-                </div>
-            </div>
+    <div class="feature">
+      <div class="feature-head">
+        <div class="feature-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
         </div>
-    </section>
+        <div class="feature-num">Private</div>
+      </div>
+      <h3 class="feature-title">Privacy hardened</h3>
+      <p class="feature-desc">Telemetry, advertising IDs, behavioural tracking - all neutralised at the source. You shouldn't have to ask Microsoft for permission to be left alone.</p>
+    </div>
 
-    <!-- How It Works Section -->
-    <section class="how-it-works">
-        <div class="container">
-            <h2>How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>Download the Playbook</h4>
-                    <p>Get the SynergyOS playbook file</p>
-                </div>
-                <div class="step-arrow">→</div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>Apply to Your System</h4>
-                    <p>Run on your existing Windows install</p>
-                </div>
-                <div class="step-arrow">→</div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>Optimize & Customize</h4>
-                    <p>Choose what stays, what goes</p>
-                </div>
-                <div class="step-arrow">→</div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h4>Experience the Difference</h4>
-                    <p>More FPS, better performance, total privacy</p>
-                </div>
-            </div>
+    <div class="feature">
+      <div class="feature-head">
+        <div class="feature-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a6.759 6.759 0 010 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 010-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         </div>
-    </section>
+        <div class="feature-num">Customisable</div>
+      </div>
+      <h3 class="feature-title">Fully customisable</h3>
+      <p class="feature-desc">Keep Defender, Microsoft Store, and Xbox. Or don't? SynergyOS is opinionated, you decide what stays and what goes.</p>
+    </div>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stat-item">
-                <h3>+15%</h3>
-                <p>Average FPS Improvement</p>
-            </div>
-            <div class="stat-item">
-                <h3>100%</h3>
-                <p>Telemetry Removed</p>
-            </div>
-            <div class="stat-item">
-                <h3>0s</h3>
-                <p>Setup Time Required</p>
-            </div>
-            <div class="stat-item">
-                <h3>∞</h3>
-                <p>Customization Options</p>
-            </div>
+    <div class="feature">
+      <div class="feature-head">
+        <div class="feature-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
         </div>
-    </section>
+        <div class="feature-num">Convenient</div>
+      </div>
+      <h3 class="feature-title">No app reinstall</h3>
+      <p class="feature-desc">Delivered as a playbook for a clean Windows install. No app hunting, no rebuilding a custom image, no registry spelunking.</p>
+    </div>
 
-    <!-- Screenshots / Preview placeholders -->
-    <section class="screenshots" id="screenshots">
-        <div class="container">
-            <h2>SEE IT IN ACTION.</h2>
-            <p class="muted">Preview placeholders — click or drop images to replace them later.</p>
-
-            <div class="screenshot-grid">
-                <div class="screenshot-placeholder" data-label="Customization Options" data-id="1">
-                    <div class="placeholder-inner">Drop image or click to upload</div>
-                    <div class="screenshot-caption">Customization Options</div>
-                </div>
-                <div class="screenshot-placeholder" data-label="Installation Start" data-id="2">
-                    <div class="placeholder-inner">Drop image or click to upload</div>
-                    <div class="screenshot-caption">Installation Start</div>
-                </div>
-                <div class="screenshot-placeholder" data-label="Installation Finish" data-id="3">
-                    <div class="placeholder-inner">Drop image or click to upload</div>
-                    <div class="screenshot-caption">Installation Finish</div>
-                </div>
-
-                <div class="screenshot-placeholder" data-label="General Look" data-id="4">
-                    <div class="placeholder-inner">Drop image or click to upload</div>
-                    <div class="screenshot-caption">General Look</div>
-                </div>
-                <div class="screenshot-placeholder" data-label="Resource Usage" data-id="5">
-                    <div class="placeholder-inner">Drop image or click to upload</div>
-                    <div class="screenshot-caption">Resource Usage</div>
-                </div>
-                <div class="screenshot-placeholder" data-label="Extra Features" data-id="6">
-                    <div class="placeholder-inner">Drop image or click to upload</div>
-                    <div class="screenshot-caption">Extra Features</div>
-                </div>
-            </div>
+    <div class="feature">
+      <div class="feature-head">
+        <div class="feature-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"/></svg>
         </div>
-    </section>
+        <div class="feature-num">Bundled</div>
+      </div>
+      <h3 class="feature-title">VCRedist + DirectX</h3>
+      <p class="feature-desc">Pre-installed runtimes that 99% of games depend on. No first-launch error popups. No hunting for missing DLLs. Just play.</p>
+    </div>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <div class="container">
-            <h2>Ready to Reclaim Your System?</h2>
-            <p>Download the SynergyOS playbook and transform your gaming experience.</p>
-            <button class="btn-primary btn-large">Get Started Now</button>
+  </div>
+</section>
+
+<section class="section" id="preview">
+  <div class="section-eyebrow">Screenshots</div>
+  <h2 class="section-title">See it in action.</h2>
+  <p class="section-lede">SynergyOS, and SynToolkit running on top of it. Click any shot to enlarge.</p>
+  <div class="gallery">
+
+    <button type="button" class="gallery-item has-image" aria-label="Open the SynergyOS screenshot">
+      <img src="images/synergyos-banner.webp" alt="SynergyOS banner artwork" width="1600" height="1074" loading="eager" decoding="async" />
+      <span class="gallery-tag">SynergyOS</span>
+      <span class="gallery-zoom" aria-hidden="true">⤢</span>
+    </button>
+
+    <button type="button" class="gallery-item has-image" aria-label="Open the SynToolkit screenshot">
+      <img src="images/syntoolkit.webp" alt="SynToolkit running on a SynergyOS desktop" width="1600" height="912" loading="eager" decoding="async" />
+      <span class="gallery-tag">SynToolkit on SynergyOS</span>
+      <span class="gallery-zoom" aria-hidden="true">⤢</span>
+    </button>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-eyebrow">a real difference</div>
+  <h2 class="section-title">Like day and night.</h2>
+  <p class="section-lede">Windows 10 and 11 compared with SynergyOS side by side.</p>
+  <div class="compare">
+
+    <div class="compare-col">
+      <div class="compare-head">Stock Windows</div>
+      <div class="compare-sub">Out of the box</div>
+      <ul class="compare-list">
+        <li><span class="compare-mark bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M6 18L18 6"/></svg></span> Telemetry &amp; tracking enabled</li>
+        <li><span class="compare-mark bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M6 18L18 6"/></svg></span> 150+ background processes</li>
+        <li><span class="compare-mark bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M6 18L18 6"/></svg></span> Bloatware pre-installed</li>
+        <li><span class="compare-mark bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M6 18L18 6"/></svg></span> Ads, AI, sponsored apps</li>
+        <li><span class="compare-mark bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M6 18L18 6"/></svg></span> Default office PC configuration</li>
+        <li><span class="compare-mark bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M6 18L18 6"/></svg></span> Frequent unnecessary changes</li>
+      </ul>
+    </div>
+
+    <div class="compare-col fsos">
+      <div class="compare-head">SynergyOS
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2C9 5 7.5 8.5 7.5 12v4l-2 3v2l4-1.5h5l4 1.5v-2l-2-3v-4c0-3.5-1.5-7-4.5-10z"/>
+          <circle cx="12" cy="10" r="2"/>
+          <path d="M9.5 19l-1 3M14.5 19l1 3"/>
+        </svg>
+      </div>
+      <div class="compare-sub">Out of the box</div>
+      <ul class="compare-list">
+        <li><span class="compare-mark good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span> No tracking by Microsoft</li>
+        <li><span class="compare-mark good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span> 55-65 base processes</li>
+        <li><span class="compare-mark good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span> Debloated and customizable</li>
+        <li><span class="compare-mark good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span> Pure, ad-free and AI-free system experience</li>
+        <li><span class="compare-mark good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span> Tuned for gaming responsiveness</li>
+        <li><span class="compare-mark good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span> You stay in control</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="download">
+  <div class="section-eyebrow">Download</div>
+  <h2 class="section-title">Get the tools.</h2>
+  <p class="section-lede">Both downloads are free. No account, no email, no strings attached.</p>
+
+  <div class="dl-grid">
+    <div class="dl-card">
+      <div class="dl-card-section">
+        <div class="dl-label">Playbook</div>
+        <div class="dl-value dl-title">SynergyOS <span class="accent" data-release="SynergyOS" data-field="version">1.7</span></div>
+        <div class="dl-rows-wrap">
+          <div class="dl-row"><span class="dl-row-label">Filename</span><span class="dl-row-value" data-release="SynergyOS" data-field="filename">SynergyOS.v0.7.apbx</span></div>
+          <div class="dl-row"><span class="dl-row-label">Size</span><span class="dl-row-value" data-release="SynergyOS" data-field="size">21.4 MB</span></div>
+          <div class="dl-row"><span class="dl-row-label">Compatibility</span><span class="dl-row-value">Win 10 22H2 · Win 11 22H2-26H2 · LTSC</span></div>
+          <div class="dl-row"><span class="dl-row-label">License</span><span class="dl-row-value">See repository</span></div>
+          <div class="dl-row"><span class="dl-row-label">Downloads</span><span class="dl-row-value" data-release="SynergyOS" data-field="downloads">7,462</span></div>
         </div>
-    </section>
-
-    <!-- Download Panel (FSOS-inspired) -->
-    <section class="download-panel" id="download">
-        <div class="container panel-grid window-card">
-            <div class="panel-left">
-                <div class="panel-badge">BUILD</div>
-                <h3 class="panel-title">SYNERGYOS R1 STABLE</h3>
-                <ul class="panel-meta">
-                    <li><strong>Filename</strong><span> SYNERGY-R1.apbx</span></li>
-                    <li><strong>Size</strong><span> 98.2 MB</span></li>
-                    <li><strong>Compatibility</strong><span> Win 11 (21H2+)</span></li>
-                    <li><strong>License</strong><span> Polyform • Non-Commercial</span></li>
-                </ul>
-                <div class="panel-verify">
-                    <small>Verify - SHA256</small>
-                    <code class="sha">adf33cc58b0514bd52f73218dc89a79c22a1bbf8d21a7f36b499b86b8e03d551</code>
-                </div>
-            </div>
-            <div class="panel-right">
-                <h4 class="panel-title-sm">DOWNLOADS</h4>
-                <div class="download-buttons">
-                    <button class="btn-primary btn-download">Download SynergyOS</button>
-                    <button class="btn-outline">Download Windows 11</button>
-                    <button class="btn-outline">Download AME Wizard</button>
-                    <button class="btn-outline">Autounattend (optional)</button>
-                </div>
-            </div>
+        <div class="dl-gap"></div>
+        <div class="dl-label">Verify · SHA-256</div>
+        <!-- hash of release 1.7 / SynergyOS.v0.7.apbx -->
+        <div class="dl-hash" id="hashBlock"><span data-release="SynergyOS" data-field="sha">44dcc089987f3a132cbd0970cb92d187c9b9879eedaf19805961ec80a5c8ef17</span><button class="dl-hash-copy" onclick="copyHash(this)">Copy</button></div>
+      </div>
+      <div class="dl-card-section">
+        <div class="dl-label">Download</div>
+        <div class="dl-mirrors-wrap">
+          <a href="https://github.com/Synergy-Tweaks/SynergyOS/releases/download/1.7/SynergyOS.v0.7.apbx" data-repo="SynergyOS" data-ext=".apbx" class="btn-primary download-latest dl-cta">Download SynergyOS</a>
+          <a href="https://www.microsoft.com/software-download/windows11" target="_blank" rel="noopener noreferrer" class="btn-secondary dl-cta">Download Windows 11</a>
+          <a href="https://download.ameliorated.io/AME%20Beta.zip" class="btn-secondary dl-cta">Download AME Wizard</a>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Comparison Table (FSOS-inspired) -->
-    <section class="compare-panel">
-        <div class="container">
-            <h2>LIKE DAY AND NIGHT.</h2>
-            <p class="muted">Windows 11 and SynergyOS compared side by side.</p>
-            <div class="compare-grid">
-                <div class="compare-card stock">
-                    <h4>STOCK WINDOWS 11</h4>
-                    <ul>
-                        <li>Telemetry & tracking enabled</li>
-                        <li>150+ background processes</li>
-                        <li>Bloatware pre-installed</li>
-                        <li>Ads, AI, sponsored apps</li>
-                        <li>Default office PC configuration</li>
-                    </ul>
-                </div>
-                <div class="compare-card synergy">
-                    <h4>SYNERGYOS</h4>
-                    <ul>
-                        <li>No tracking by Microsoft</li>
-                        <li>55-65 base processes</li>
-                        <li>Debloated and customizable</li>
-                        <li>Pure, ad-free system experience</li>
-                        <li>Tuned for gaming responsiveness</li>
-                    </ul>
-                </div>
-            </div>
+    <div class="dl-card">
+      <div class="dl-card-section">
+        <div class="dl-label">App</div>
+        <div class="dl-value dl-title">SynToolkit <span class="accent" data-release="SynToolkit" data-field="version">1.7</span></div>
+        <div class="dl-rows-wrap">
+          <div class="dl-row"><span class="dl-row-label">Filename</span><span class="dl-row-value" data-release="SynToolkit" data-field="filename">SynToolkit-Setup-1.7.0-Stable.exe</span></div>
+          <div class="dl-row"><span class="dl-row-label">Size</span><span class="dl-row-value" data-release="SynToolkit" data-field="size">141 MB</span></div>
+          <div class="dl-row"><span class="dl-row-label">Compatibility</span><span class="dl-row-value">Windows 11 · WinUI 3</span></div>
+          <div class="dl-row"><span class="dl-row-label">License</span><span class="dl-row-value">See repository</span></div>
+          <div class="dl-row"><span class="dl-row-label">Downloads</span><span class="dl-row-value" data-release="SynToolkit" data-field="downloads">3,635</span></div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>SynergyOS</h4>
-                    <p>Windows optimized for gamers</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#docs">Documentation</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#support">Support</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Community</h4>
-                    <ul>
-                        <li><a href="#discord">Discord</a></li>
-                        <li><a href="#github">GitHub</a></li>
-                        <li><a href="#twitter">Twitter</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 SynergyOS. Built for gamers, by gamers.</p>
-            </div>
+      </div>
+      <div class="dl-card-section">
+        <div class="dl-label">Download</div>
+        <div class="dl-mirrors-wrap">
+          <a href="https://github.com/Synergy-Tweaks/SynToolkit/releases/download/1.7/SynToolkit-Setup-1.7.0-Stable.exe" data-repo="SynToolkit" data-ext=".exe" class="btn-primary download-latest dl-cta">Download SynToolkit</a>
+          <a href="https://github.com/Synergy-Tweaks/SynToolkit" target="_blank" rel="noopener noreferrer" class="btn-secondary dl-cta">Source on GitHub</a>
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
 
-    <script src="script.js"></script>
+<p style="font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--text-faint); margin-top: 28px; text-align: center; text-transform: uppercase;">
+    <span class="apply-line">Apply via AME Wizard.</span> Read <a href="#modal-install" data-modal="install" style="color: var(--text); text-decoration: underline; text-underline-offset: 3px;">how-to-install</a> &amp; <a href="#modal-issues" data-modal="issues" style="color: var(--text); text-decoration: underline; text-underline-offset: 3px;">known-issues</a> first.
+  </p>
+</section>
+
+<section class="section" id="faq">
+  <div class="section-eyebrow">FAQ</div>
+  <h2 class="section-title">Questions, answered.</h2>
+  <p class="section-lede">Short answers to the things people ask most before installing.</p>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>What do I tick during setup?</summary>
+      <p>Tick what you actually use. Leave the four security options (exploit mitigations, UAC, VBS/HVCI, Credential Guard) unchecked unless you know the trade-off — they apply machine-wide and many anti-cheats refuse to run with them off.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Should I disable security mitigations?</summary>
+      <p>No. All four security toggles are off by default and nothing is applied unless you tick them. Keep Core Isolation and VBS if you play Faceit or Valorant.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can I apply the playbook over another custom OS?</summary>
+      <p>No. Start from stock Windows with no tweaks applied.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is a fresh install required?</summary>
+      <p>Yes. Start from a clean, stock Windows 10 22H2 or Windows 11 22H2–26H2 ISO with no tweaks applied, and back up your files first.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can I use this on Windows 10?</summary>
+      <p>Yes. Windows 10 22H2 and Windows 11 22H2–26H2 are supported, LTSC included. 26H2 is experimental; 25H2 is the safest base.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Does Windows Update still work?</summary>
+      <p>The playbook pauses updates until 2038. The Windows Update page in Settings stays reachable — resume updates there, then reopen AME Wizard and choose "Run Again".</p>
+    </details>
+    <details class="faq-item">
+      <summary>The installer is stuck, what do I do?</summary>
+      <p>Wait a few minutes, then restart it if it doesn't continue. Close browsers, Discord and other background apps first.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How do I skip the online account requirement?</summary>
+      <p>During Windows setup, choose "Set up for work or school" then "Domain join" to create a local account.</p>
+    </details>
+  </div>
+</section>
+
+<section class="cta-final">
+  <h2 class="cta-final-title">
+    Reclaim <span class="accent">your</span> computer.
+  </h2>
+  <p class="cta-final-sub">SynergyOS is free, audited and built by people who actually game on a high level. Try it once - there's no going back.</p>
+    <div class="cta-final-buttons">
+    <a href="https://github.com/Synergy-Tweaks/SynergyOS/releases/download/1.7/SynergyOS.v0.7.apbx" data-repo="SynergyOS" data-ext=".apbx" class="btn-primary download-latest">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+      Download SynergyOS
+    </a>
+    <a href="https://discord.gg/kwanteks" class="btn-discord">
+      <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+      Get Support
+    </a>
+  </div>
+  <p style="font-family: 'Manrope', sans-serif; font-size: 12px; line-height: 1.5; color: #6b6478; margin-top: 28px; text-align: center; max-width: 640px; margin-left: auto; margin-right: auto;">* This build is intended for gamers and privacy enthusiasts. For multi-taskers, we recommend dual-booting.</p>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-wordmark">SYNERGY TWEAKS</div>
+  <div class="footer-inner">
+    <div class="footer-grid">
+    <div class="footer-brand-block">
+      <div class="footer-brand-mark">
+        <img src="images/logo-sm.webp" alt="Synergy Tweaks logo" width="52" height="52" data-logo="true" />
+        <span>Synergy Tweaks</span>
+      </div>
+      <p class="footer-tagline">Windows, done right. SynergyOS and the tools around it, built by Kwanteks, Bry1k and Chr. © 2026</p>
+      <div class="footer-socials">
+        <a href="https://discord.gg/kwanteks" aria-label="Discord">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@kwanteks" aria-label="YouTube">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://x.com/synergyos48" aria-label="X / Twitter">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Projects</div>
+      <a href="#download">SynergyOS</a>
+      <a href="https://github.com/Synergy-Tweaks/SynToolkit">SynToolkit</a>
+      <a href="https://github.com/Synergy-Tweaks/Original-Post-Install">Original Post Install</a>
+      <a href="https://github.com/Synergy-Tweaks">All repositories</a>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Resources</div>
+      <a href="#modal-install" data-modal="install">How to install</a>
+      <a href="#modal-issues" data-modal="issues">Known issues</a>
+      <a href="#modal-changelog" data-modal="changelog">Changelog</a>
+      <a href="#faq">FAQ</a>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Community</div>
+      <a href="https://discord.gg/kwanteks">Discord</a>
+      <a href="https://www.youtube.com/@kwanteks">YouTube</a>
+      <a href="https://x.com/synergyos48">Twitter</a>
+    </div>
+  </div>
+
+  </div>
+</footer>
+
+<script src="script.js?v=5" defer></script>
+
+<div class="info-modal" id="modal-install" role="dialog" aria-modal="true" aria-label="How to install">
+  <div class="info-modal-content">
+    <a class="info-modal-close" href="#main" aria-label="Close">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </a>
+    <div class="info-modal-eyebrow">Guide</div>
+    <h2 class="info-modal-title">How to install SynergyOS</h2>
+    <div class="info-modal-callout warn">
+      <strong>Note:</strong> We recommend a clean, stock Windows 10 22H2 or Windows 11 22H2-26H2 install (LTSC supported, all updates applied) as a base. Please backup your files before you begin. For the best experience, do not mix with other playbooks or custom OS.
+    </div>
+    <div class="info-modal-callout danger">
+      If you're playing CS2 Faceit or Valorant, please don't disable Core Isolation &amp; VBS in the customization options.
+    </div>
+    <ol>
+      <li>Download and install <strong>Windows 10 22H2 or Windows 11 22H2-26H2</strong> (25H2 recommended) with <strong>no</strong> tweaks.</li>
+      <li>Install all updates beforehand. Do not skip or pause them. Restart your PC so they can apply, and only then proceed with the next step.</li>
+      <li>Download <strong>AME Wizard</strong>, unzip it and launch it.</li>
+      <li>Download the playbook (<strong>SynergyOS.v0.7.apbx</strong>) from the Download section.</li>
+      <li>Close all running apps like browsers, Discord, background stuff, etc.</li>
+      <li>Drag and drop the playbook (<strong>apbx file</strong>) into AME Wizard.</li>
+      <li>Follow the instructions and choose your customization options.</li>
+      <li>Wait for setup to complete, takes about 10-15 minutes.</li>
+    </ol>
+    <p>Once this is all done, your PC will restart automatically. Install your graphics, chipset and network drivers and you're all set.</p>
+  </div>
+</div>
+
+<div class="info-modal" id="modal-issues" role="dialog" aria-modal="true" aria-label="Known issues">
+  <div class="info-modal-content">
+    <a class="info-modal-close" href="#main" aria-label="Close">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </a>
+    <div class="info-modal-eyebrow">1.7 · Stable</div>
+    <h2 class="info-modal-title">Known issues</h2>
+    <div class="info-modal-callout warn">
+      Even Though We test each release ourselfs and with out testers, Bugs are still bound to come, so if you notice is a bug, please don't hesistate to tell us in our server.
+    </div>
+    <ul class="info-modal-changelog-list">
+      <li>Some privacy toggles are greyed out (policy)</li>
+      <li>Start menu account flyout doesn't work</li>
+    </ul>
+  </div>
+</div>
+
+<div class="info-modal" id="modal-changelog" role="dialog" aria-modal="true" aria-label="Changelog">
+  <div class="info-modal-content">
+    <a class="info-modal-close" href="#main" aria-label="Close">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </a>
+    <div class="info-modal-eyebrow">Release Notes</div>
+    <h2 class="info-modal-title">Changelog</h2>
+
+    <div class="info-modal-changelog-version">SynergyOS 1.7</div>
+    <ul class="info-modal-changelog-list">
+      <li>26H2 experimental support</li>
+      <li>SynToolkit now installs by default</li>
+      <li>Removed the Defender removal checkbox, which was causing bugs</li>
+      <li>Remove Edge and Disable Xbox Services stay checked by default</li>
+      <li>ISO injection is still in development; re-run the playbook after installing the modified ISO</li>
+      <li>Note: if you removed Defender in a previous version, reinstall Windows before applying 1.7.</li>
+    </ul>
+
+    <div class="info-modal-changelog-version">SynToolkit 1.7</div>
+    <ul class="info-modal-changelog-list">
+      <li>New Games tab with Discord Rich Presence</li>
+      <li>New Audio Mixer with per-app volumes that are remembered between sessions</li>
+      <li>New Tweaks tab showing what SynergyOS applies, with per-tweak toggles</li>
+      <li>New Uninstaller tab</li>
+      <li>Reworked Power Plans tab</li>
+      <li>GPU driver downloads inside the app</li>
+    </ul>
+
+    
+
+    
+
+  
+
+    
+</div>
+
+</div>
+
+
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer">
+  <div class="lightbox-content">
+    <button class="lightbox-prev" aria-label="Previous image">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button class="lightbox-next" aria-label="Next image">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <button class="lightbox-close" aria-label="Close">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <img class="lightbox-img" src="" alt="" />
+    <div class="lightbox-caption"></div>
+  </div>
+</div>
 </body>
 </html>

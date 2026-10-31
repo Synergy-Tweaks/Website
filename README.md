@@ -1,129 +1,97 @@
-# SynergyOS Website
+# Synergy Tweaks website
 
-A modern, dark gaming-focused website for SynergyOS - the optimized Windows playbook for gamers.
+One static page for [Synergy Tweaks](https://github.com/Synergy-Tweaks): SynergyOS
+front and centre, SynToolkit and the smaller repos one click away.
 
-## Overview
+No framework, no build step, no dependencies. Open it, ship it.
 
-SynergyOS is a completely redesigned Windows experience that delivers:
-- **Modern Dark Design** - Built for gamers, not office PCs
-- **Performance** - Real FPS gains through scheduling, memory, kernel, GPU & CPU tuning
-- **Privacy** - Telemetry and tracking neutralized at the source
-- **Customization** - Full control over what stays and what goes
-- **Convenience** - Apply as a playbook with no fresh install required
-- **Pre-bundled** - VCRedist + DirectX included
-
-## File Structure
+## Files
 
 ```
-Synergy Website/
-├── index.html          # Main website HTML structure
-├── styles.css          # All styling and responsive design
-├── script.js           # Interactive features and animations
-└── README.md           # This file
+index.html          the page
+styles.css          all styling
+script.js           lightbox, modals, count-up, download resolution
+images/             logo, screenshots, OG card
+fonts/              Anton + Manrope, self-hosted latin woff2
+tools/check.mjs     page check (dead anchors, missing images, stale URLs)
+docs/               design and plan notes
 ```
 
-## Features
+## Run it locally
 
-### Logo Placeholder
-The logo placeholder is located in the top-left navigation bar. You can update it in three ways:
-
-1. **Drag & Drop**: Drag an image file directly onto the gradient placeholder box
-2. **Click to Upload**: Click the placeholder box to open a file browser and select an image
-3. **Replace in Code**: Edit `index.html` and replace the logo-placeholder div with your own image tag
-
-The placeholder is clearly marked in `index.html` with a comment:
-```html
-<!-- LOGO PLACEHOLDER - Drag and drop your logo here -->
+```powershell
+python -m http.server 8080
 ```
 
-### Design Elements
+Then open <http://localhost:8080/>. Any static server works; the page also opens
+straight from disk, minus the GitHub API lookup on download.
 
- - **Color Scheme**: Purple (#7C4DFF) and Lavender (#B388FF) accents on dark backgrounds
-- **Typography**: Modern sans-serif with gradient text effects
-- **Animations**: Smooth transitions, hover effects, and scroll-triggered animations
-- **Responsive**: Works on desktop, tablet, and mobile devices
+`styles.css` and `script.js` carry a `?v=` number in `index.html`. Bump it after
+changing either file, otherwise browsers (and hosts) keep serving the old copy.
 
-### Sections
+## Check it
 
-1. **Navigation Bar** - Sticky header with logo and menu links
-2. **Hero Section** - Main headline with CTA buttons and visual effects
-3. **Features Grid** - 6 key features with icons and descriptions
-4. **How It Works** - 4-step process visualization
-5. **Stats Section** - Key metrics and impressive numbers
-6. **Call-to-Action** - Final push to get started
-7. **Footer** - Links and copyright information
-
-## Customization
-
-### Colors
-Edit the CSS variables at the top of `styles.css`:
-```css
-:root {
-    --primary-color: #7C4DFF;      /* Purple accent */
-    --secondary-color: #B388FF;    /* Lavender accent */
-    --dark-bg: #071022;            /* Main background */
-    /* ... more variables ... */
-}
+```powershell
+node tools/check.mjs
 ```
 
-### Content
-All text is in `index.html`. Simply edit the HTML content to update:
-- Headlines and descriptions
-- Feature text
-- Button labels
-- Footer links
+It fails on dead in-page anchors, images without dimensions or missing files,
+leftover Google Fonts requests, the old Cloudflare beacon, stale promo image
+references, a missing `<main>`, and download anchors that lost their release
+wiring. Run it before every commit.
 
-### Fonts
-Modify the font family in `styles.css`:
-```css
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-```
+## Downloads
 
-## Features Included
+Both buttons resolve the newest release asset from the GitHub API when clicked:
 
-✅ Modern dark gaming aesthetic  
-✅ Fully responsive design (mobile, tablet, desktop)  
-✅ Logo drag-and-drop functionality  
-✅ Smooth scroll animations  
-✅ Hover effects on interactive elements  
-✅ Gradient text and accent colors  
-✅ Professional button styling  
-✅ Organized feature cards  
-✅ Stats showcase section  
-✅ Mobile-optimized navigation  
+- SynergyOS → newest `.apbx` in `Synergy-Tweaks/SynergyOS`
+- SynToolkit → newest `.exe` in `Synergy-Tweaks/SynToolkit`
 
-## How to Use
+If the API is blocked or rate limited, the button falls back to the hardcoded URL
+in `FALLBACK` in `script.js`, which is also the plain `href`, so the link works
+with JavaScript off.
 
-1. **Logo Setup**: Open the website in a browser, then drag your SynergyOS logo onto the placeholder or click it to upload
-2. **Local Development**: Open `index.html` in any modern web browser
-3. **Deployment**: Upload all three files (index.html, styles.css, script.js) to your web hosting
+### Live release data
 
-## Browser Support
+On load, `script.js` reads both repos' releases and fills in the version, filename,
+size, SHA-256 (from the asset digest) and download counts, including the hero
+number. The response is cached in `localStorage` for six hours, so a normal visit
+costs no API calls and the per-IP rate limit is not a concern. If the API fails,
+the values already in `index.html` stay put — those are the no-JS and offline
+fallback, so refresh them occasionally.
 
-Works on all modern browsers:
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers
+### Cutting a release
 
-## Next Steps
+These are still manual because the API does not carry them:
 
-- [ ] Add your SynergyOS logo to the placeholder
-- [ ] Update social media links in footer
-- [ ] Configure email/contact forms for CTAs
-- [ ] Add documentation pages
-- [ ] Set up analytics
-- [ ] Deploy to web server
+1. The `FALLBACK` URLs and the version in the `href`s in `index.html` (now only a
+   fallback; the live data updates itself).
+2. The static values in the cards and hero, used when JavaScript is off.
+3. The changelog modal at the bottom of `index.html`, from the release bodies on
+   GitHub. Compatibility follows the repo README: Windows 10 22H2 and Windows 11
+   22H2–26H2, LTSC included, 26H2 experimental.
 
-## Notes
+## Images
 
-- All animations are GPU-accelerated for smooth performance
-- The design uses CSS Grid and Flexbox for layout
-- JavaScript includes intersection observer for scroll animations
-- Logo placeholder supports drag-and-drop for easy updates
+- `images/synergyos-banner.webp` — the banner from the SynergyOS README
+- `images/syntoolkit.webp` — SynToolkit running on a SynergyOS desktop
+- `images/logo.webp` (256×256) — SynToolkit master logo, used for the hero watermark
+- `images/logo-sm.webp` (52×52) — nav and footer
+- `images/og.jpg` — 1200×630 social card
 
----
+Keep the intrinsic sizes in the markup in sync with the files; the page check
+enforces that dimensions exist, because missing ones cause layout shift.
 
-Built for SynergyOS • May 2026
+## Fonts
+
+Nunito 200–1000 (variable) for headings, Manrope 200–800 for body, Anton 400 for
+the footer wordmark. Latin subsets, self-hosted from `fonts/`. No requests leave
+the page for fonts. To swap them, replace the woff2 files and the `@font-face`
+blocks in `styles.css`.
+
+## Content
+
+Sections, in order: hero, stats, projects, features, SynToolkit dashboard,
+screenshots, comparison, downloads, FAQ, final call to action, footer. The
+install guide, known issues and changelog live in dialogs at the bottom of
+`index.html`; the FAQ is an inline `<details>` accordion.
