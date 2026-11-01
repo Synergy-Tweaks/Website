@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SynergyOS — Windows playbook by Synergy Tweaks</title>
+<meta name="description" content="SynergyOS is an AME Wizard (.apbx) playbook for a cleaner, privacy-hardened Windows install. Requirements, install steps, FAQ, and download.">
+<meta name="theme-color" content="#050506">
+<link rel="canonical" href="https://TODO-SET-DOMAIN/synergyos.html">
+<meta property="og:title" content="SynergyOS — Windows playbook">
+<meta property="og:description" content="AME Wizard playbook for a cleaner Windows install. Free and open on GitHub.">
+<meta property="og:image" content="https://TODO-SET-DOMAIN/images/og.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://TODO-SET-DOMAIN/synergyos.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SynergyOS">
+<meta name="twitter:description" content="AME Wizard playbook for a cleaner Windows install.">
+<meta name="twitter:image" content="https://TODO-SET-DOMAIN/images/og.jpg">
+<link rel="icon" href="images/logo-sm.webp" type="image/webp">
+<link rel="preload" href="fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=16">
+<script src="js/config.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html" class="nav-brand">
+      <img src="images/logo-sm.webp" alt="" width="52" height="52" decoding="async">
+      <span>Synergy Tweaks</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="synergyos.html" aria-current="page">SynergyOS</a>
+      <a href="syntoolkit.html">SynToolkit</a>
+      <a href="docs.html">Docs</a>
+      <a href="about.html">About</a>
+      <a href="#download">Download</a>
+      <a href="index.html#community">Community</a>
+    </div>
+    <div class="nav-ext">
+      <a class="btn btn-ghost" href="https://github.com/Synergy-Tweaks/SynergyOS" data-link="synergyos" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="btn btn-primary" href="#download">Download</a>
+    </div>
+    <details class="nav-menu">
+      <summary aria-label="Open menu">Menu</summary>
+      <div class="nav-menu-panel">
+        <a href="index.html">Home</a>
+        <a href="synergyos.html" aria-current="page">SynergyOS</a>
+        <a href="syntoolkit.html">SynToolkit</a>
+        <a href="docs.html">Docs</a>
+        <a href="about.html">About</a>
+        <a href="#download">Download</a>
+        <a href="index.html#community">Community</a>
+      </div>
+    </details>
+  </nav>
+</header>
+
+<main id="main">
+  <header class="page-hero wrap">
+    <div class="badge badge-accent" style="margin-bottom:14px">Playbook · .apbx</div>
+    <h1>SynergyOS</h1>
+    <p>An AME Wizard playbook that debloats Windows, reduces telemetry, and applies optional performance and privacy options on a clean install.</p>
+  </header>
+
+  <section class="section wrap reveal" aria-labelledby="what-title">
+    <div class="section-head">
+      <div class="eyebrow">Overview</div>
+      <h2 class="section-title" id="what-title">What it is</h2>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <h3>What it changes</h3>
+        <p>Removes unused components you opt into removing, applies registry and policy tweaks, pauses Windows Update until you resume it, and can install SynToolkit and common game runtimes.</p>
+      </article>
+      <article class="card">
+        <h3>What it does not change</h3>
+        <p>It is not a custom ISO by itself, not a game cheat, and not a rollback-friendly patch. It does not invent FPS gains. Security options that weaken Windows are unchecked unless you tick them.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap reveal" id="requirements" aria-labelledby="req-title">
+    <div class="section-head">
+      <div class="eyebrow">Compatibility</div>
+      <h2 class="section-title" id="req-title">Requirements</h2>
+    </div>
+    <div class="callout warn">
+      <strong>Supported bases (from the SynergyOS README):</strong> Windows 10 <code>22H2</code> and Windows 11 <code>22H2</code>–<code>26H2</code>, including LTSC. Windows 11 <code>26H2</code> is experimental; <code>25H2</code> is the safer current base.
+      <br><br>TODO: confirm with Kwanteks if support should become Windows 11 only.
+    </div>
+    <ul class="card" style="padding:20px 24px;list-style:disc;padding-left:2rem;color:var(--text-dim)">
+      <li>Clean stock Windows install (no other tweaks or custom OS layered underneath)</li>
+      <li>All Windows updates applied before the playbook</li>
+      <li>AME Wizard (Ameliorated)</li>
+      <li>Backup of your files — there is no supported rollback short of reinstalling Windows</li>
+    </ul>
+  </section>
+
+  <section class="section wrap reveal" id="install" aria-labelledby="install-title">
+    <div class="section-head">
+      <div class="eyebrow">Install</div>
+      <h2 class="section-title" id="install-title">Guide</h2>
+      <p class="section-lede">Follow these steps before you download. Skipping them is the usual source of broken installs.</p>
+    </div>
+    <div class="callout danger">
+      <strong>Anti-cheat:</strong> If you play FACEIT or Valorant, do not disable Core Isolation / VBS in the customization options.
+    </div>
+    <ol class="stepper">
+      <li class="step">
+        <div>
+          <h3>Download Windows</h3>
+          <p>Install stock Windows 10 22H2 or Windows 11 22H2–26H2 (25H2 recommended) with no prior tweaks.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div>
+          <h3>Install updates</h3>
+          <p>Install all updates, restart so they apply, then continue. Do not pause updates first.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div>
+          <h3>Get AME Wizard</h3>
+          <p>Download AME Wizard from Ameliorated, unzip it, and launch it.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div>
+          <h3>Drag the .apbx in</h3>
+          <p>Close browsers, Discord, and other background apps. Drag SynergyOS.apbx into AME Wizard.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div>
+          <h3>Choose options</h3>
+          <p>Tick only what you use. Leave the four security options unchecked unless you understand the tradeoff.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div>
+          <h3>Wait</h3>
+          <p>Setup usually takes about 10–15 minutes. The PC restarts when finished.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div>
+          <h3>Update drivers</h3>
+          <p>Install graphics, chipset, and network drivers after the reboot.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section wrap reveal" id="download" aria-labelledby="dl-title">
+    <div class="section-head">
+      <div class="eyebrow">Download</div>
+      <h2 class="section-title" id="dl-title">SynergyOS playbook</h2>
+      <p class="section-lede">Only download from this site or the official GitHub release. We are not responsible for repackaged copies.</p>
+    </div>
+    <article class="download-card featured">
+      <div class="plan-top">
+        <span class="badge">Playbook</span>
+        <span class="badge badge-accent" data-release="SynergyOS" data-field="version">Latest</span>
+      </div>
+      <h3>SynergyOS</h3>
+      <p class="desc">AME Wizard playbook for a clean Windows base.</p>
+      <ul class="meta-list">
+        <li><span>Filename</span><span data-release="SynergyOS" data-field="filename">—</span></li>
+        <li><span>Size</span><span data-release="SynergyOS" data-field="size">—</span></li>
+        <li><span>Compatibility</span><span>Win 10 22H2 · Win 11 22H2–26H2 · LTSC</span></li>
+        <li><span>License</span><span>See repository</span></li>
+        <li><span>SHA-256</span><span>see below</span></li>
+      </ul>
+      <div class="hash-row">
+        <span id="os-sha" data-release="SynergyOS" data-field="sha">Loading from GitHub…</span>
+        <button type="button" data-copy-hash="#os-sha">Copy</button>
+      </div>
+      <p class="todo-note" style="margin-top:0;margin-bottom:16px">Version, size, and SHA-256 fill from the latest GitHub release. If the digest is missing on GitHub, confirm it manually.</p>
+      <a class="btn btn-primary btn-block" href="https://github.com/Synergy-Tweaks/SynergyOS/releases/latest/download/SynergyOS.apbx" data-repo="SynergyOS" data-ext=".apbx">Download SynergyOS</a>
+      <p style="margin-top:14px;font-size:14px;color:var(--text-dim)">
+        <a href="https://github.com/Synergy-Tweaks/SynergyOS/releases" data-link="synergyos-releases" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Previous releases</a>
+        ·
+        <a href="https://download.ameliorated.io/AME%20Beta.zip" data-link="ame" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">AME Wizard</a>
+        ·
+        <a href="https://www.microsoft.com/software-download/windows11" data-link="windows11" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Windows 11 ISO</a>
+      </p>
+    </article>
+  </section>
+
+  <section class="section wrap reveal" id="risks" aria-labelledby="risk-title">
+    <div class="section-head">
+      <div class="eyebrow">Disclosure</div>
+      <h2 class="section-title" id="risk-title">Risks and tradeoffs</h2>
+    </div>
+    <div class="callout danger">
+      <strong>Some options reduce Windows security.</strong> Disabling exploit mitigations, UAC, VBS/HVCI, or Credential Guard makes the machine easier to compromise and can break anti-cheats or enterprise features. Those checkboxes are off by default. Tick them only if you accept that tradeoff.
+    </div>
+    <div class="callout warn">
+      <strong>Defender and other removals:</strong> Older playbook versions offered Defender removal and it caused bugs; that checkbox was removed in 1.7. If you removed Defender on an earlier version, reinstall Windows before applying 1.7. Any choice that strips security software increases risk — that is intentional and on you.
+    </div>
+    <p style="color:var(--text-dim)">Windows Update is paused until 2038 by the playbook. You can resume updates in Settings, then reopen AME Wizard and choose “Run Again”.</p>
+  </section>
+
+  <section class="section wrap reveal" id="faq" aria-labelledby="faq-title">
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title" id="faq-title">Common questions</h2>
+    </div>
+    <div class="faq">
+      <details class="faq-item">
+        <summary>Can I roll back SynergyOS?</summary>
+        <p>No. There is no supported undo. Reinstall Windows from a stock ISO if you need a clean system again. Back up files first.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is it safe?</summary>
+        <p>It modifies system components. Download only from official GitHub releases. Review every checkbox. Security options that weaken Windows are optional and off by default.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does it work with anti-cheat?</summary>
+        <p>Keep Core Isolation and VBS enabled for FACEIT and Valorant. Disabling mitigations machine-wide is a common reason anti-cheats refuse to run.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What about Microsoft Defender?</summary>
+        <p>You can keep Defender. The Defender removal checkbox was removed in 1.7 because it caused bugs. Removing antivirus always increases risk.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I apply this over another custom OS?</summary>
+        <p>No. Start from stock Windows with no tweaks applied.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is a fresh install required?</summary>
+        <p>Yes. Clean stock ISO, updates applied, files backed up.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does Windows Update still work?</summary>
+        <p>Updates are paused until 2038. Resume them in Settings when you want them, then run the playbook again via AME Wizard if needed.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I skip the online account requirement?</summary>
+        <p>During Windows setup, choose “Set up for work or school”, then “Domain join” to create a local account.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section wrap reveal" id="changelog" aria-labelledby="cl-title">
+    <div class="section-head">
+      <div class="eyebrow">History</div>
+      <h2 class="section-title" id="cl-title">Changelog</h2>
+      <p class="section-lede">Latest release notes from GitHub. Older releases are on the repository releases page.</p>
+    </div>
+    <div data-changelog="SynergyOS" data-limit="1">
+      <div class="changelog-block">
+        <h3>SynergyOS 1.7</h3>
+        <div class="changelog-body">
+          <p>Loading release notes from GitHub… If this stays visible, open the
+            <a href="https://github.com/Synergy-Tweaks/SynergyOS/releases" data-link="synergyos-releases" target="_blank" rel="noopener noreferrer">releases page</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap reveal" id="issues" aria-labelledby="issues-title">
+    <div class="section-head">
+      <div class="eyebrow">Bugs</div>
+      <h2 class="section-title" id="issues-title">Known issues</h2>
+      <p class="section-lede">Edit <code>data/known-issues.json</code> to update this list.</p>
+    </div>
+    <div data-known-issues>
+      <div class="callout warn"><strong>1.7</strong> — We test each release ourselves and with testers, but bugs still slip through. Report issues in Discord or on GitHub.</div>
+      <p style="color:var(--text-dim)">No known issues listed for the current release.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="images/logo-sm.webp" alt="" width="52" height="52"> Synergy Tweaks</div>
+        <p class="footer-tag">Windows playbooks and tools from the Synergy-Tweaks org.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Projects</h4>
+        <a href="synergyos.html">SynergyOS</a>
+        <a href="syntoolkit.html">SynToolkit</a>
+        <a href="https://github.com/Synergy-Tweaks" data-link="org" target="_blank" rel="noopener noreferrer">All repos</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="docs.html">Docs</a>
+        <a href="#install">Install guide</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="credits.html">Credits</a>
+        <a href="https://dsc.gg/kwanteks" data-link="discord" target="_blank" rel="noopener noreferrer">Discord</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Synergy Tweaks</span>
+      <span>Not affiliated with Microsoft.</span>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js?v=14" defer></script>
+</body>
+</html>

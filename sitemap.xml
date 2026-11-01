@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: replace TODO-SET-DOMAIN with the production origin -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://TODO-SET-DOMAIN/</loc></url>
+  <url><loc>https://TODO-SET-DOMAIN/synergyos.html</loc></url>
+  <url><loc>https://TODO-SET-DOMAIN/syntoolkit.html</loc></url>
+  <url><loc>https://TODO-SET-DOMAIN/docs.html</loc></url>
+  <url><loc>https://TODO-SET-DOMAIN/about.html</loc></url>
+  <url><loc>https://TODO-SET-DOMAIN/privacy.html</loc></url>
+  <url><loc>https://TODO-SET-DOMAIN/credits.html</loc></url>
+</urlset>

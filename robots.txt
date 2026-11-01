@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: replace TODO-SET-DOMAIN with the production origin
+Sitemap: https://TODO-SET-DOMAIN/sitemap.xml

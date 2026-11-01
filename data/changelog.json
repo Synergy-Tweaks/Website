@@ -1,0 +1,30 @@
+{
+  "SynergyOS": [
+    {
+      "version": "1.7",
+      "date": "",
+      "notes": [
+        "26H2 experimental support",
+        "SynToolkit now installs by default",
+        "Removed the Defender removal checkbox, which was causing bugs",
+        "Remove Edge and Disable Xbox Services stay checked by default",
+        "ISO injection is still in development; re-run the playbook after installing the modified ISO",
+        "If you removed Defender in a previous version, reinstall Windows before applying 1.7"
+      ]
+    }
+  ],
+  "SynToolkit": [
+    {
+      "version": "1.7",
+      "date": "",
+      "notes": [
+        "New Games tab with Discord Rich Presence",
+        "New Audio Mixer with per-app volumes that are remembered between sessions",
+        "New Tweaks tab showing what SynergyOS applies, with per-tweak toggles",
+        "New Uninstaller tab",
+        "Reworked Power Plans tab",
+        "GPU driver downloads inside the app"
+      ]
+    }
+  ]
+}

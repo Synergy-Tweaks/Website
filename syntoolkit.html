@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SynToolkit — WinUI 3 toolkit by Synergy Tweaks</title>
+<meta name="description" content="SynToolkit is a GPL-3.0 WinUI 3 Windows utility with a live hardware dashboard, real-time graph, and tweak controls. Companion to SynergyOS.">
+<meta name="theme-color" content="#050506">
+<link rel="canonical" href="https://TODO-SET-DOMAIN/syntoolkit.html">
+<meta property="og:title" content="SynToolkit — WinUI 3 toolkit">
+<meta property="og:description" content="Live hardware dashboard and tweak controls for Windows 10 and 11. GPL-3.0.">
+<meta property="og:image" content="https://TODO-SET-DOMAIN/images/og.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://TODO-SET-DOMAIN/syntoolkit.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SynToolkit">
+<meta name="twitter:description" content="WinUI 3 companion app for SynergyOS. GPL-3.0.">
+<meta name="twitter:image" content="https://TODO-SET-DOMAIN/images/og.jpg">
+<link rel="icon" href="images/logo-sm.webp" type="image/webp">
+<link rel="preload" href="fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=16">
+<script src="js/config.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html" class="nav-brand">
+      <img src="images/logo-sm.webp" alt="" width="52" height="52" decoding="async">
+      <span>Synergy Tweaks</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="synergyos.html">SynergyOS</a>
+      <a href="syntoolkit.html" aria-current="page">SynToolkit</a>
+      <a href="docs.html">Docs</a>
+      <a href="about.html">About</a>
+      <a href="#download">Download</a>
+      <a href="index.html#community">Community</a>
+    </div>
+    <div class="nav-ext">
+      <a class="btn btn-ghost" href="https://github.com/Synergy-Tweaks/SynToolkit" data-link="syntoolkit" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="btn btn-primary" href="#download">Download</a>
+    </div>
+    <details class="nav-menu">
+      <summary aria-label="Open menu">Menu</summary>
+      <div class="nav-menu-panel">
+        <a href="index.html">Home</a>
+        <a href="synergyos.html">SynergyOS</a>
+        <a href="syntoolkit.html" aria-current="page">SynToolkit</a>
+        <a href="docs.html">Docs</a>
+        <a href="about.html">About</a>
+        <a href="#download">Download</a>
+      </div>
+    </details>
+  </nav>
+</header>
+
+<main id="main">
+  <header class="page-hero wrap">
+    <div class="badge badge-accent" style="margin-bottom:14px">App · WinUI 3 · GPL-3.0</div>
+    <h1>SynToolkit</h1>
+    <p>A Windows 10 and Windows 11 utility with a live hardware dashboard (CPU, RAM, GPU, uptime), a real-time graph, and a collapsible sidebar for tweaks and tools.</p>
+  </header>
+
+  <section class="section wrap reveal" aria-labelledby="feat-title">
+    <div class="section-head">
+      <div class="eyebrow">Features</div>
+      <h2 class="section-title" id="feat-title">What it includes</h2>
+    </div>
+    <div class="grid-3 feature-grid">
+      <article class="card"><h3>Hardware dashboard</h3><p>Live CPU, RAM, GPU, and uptime readouts.</p></article>
+      <article class="card"><h3>Real-time graph</h3><p>Activity graph for quick system glance.</p></article>
+      <article class="card"><h3>Collapsible sidebar</h3><p>Navigation that stays out of the way when you need space.</p></article>
+      <article class="card"><h3>Tweaks tab</h3><p>Shows what SynergyOS applies, with per-tweak toggles.</p></article>
+      <article class="card"><h3>Games &amp; audio</h3><p>Games tab with Discord Rich Presence; audio mixer with remembered per-app volumes.</p></article>
+      <article class="card"><h3>Drivers &amp; cleanup</h3><p>GPU driver downloads, power plans, and an uninstaller tab.</p></article>
+    </div>
+  </section>
+
+  <section class="section wrap reveal" aria-labelledby="shots-title">
+    <div class="section-head">
+      <div class="eyebrow">Screenshots</div>
+      <h2 class="section-title" id="shots-title">Look</h2>
+    </div>
+    <div class="shots">
+      <figure class="shot">
+        <img src="images/syntoolkit.webp" alt="SynToolkit on a SynergyOS desktop" width="1600" height="912" loading="lazy" decoding="async">
+        <figcaption class="shot-label">Dashboard</figcaption>
+      </figure>
+      <figure class="shot"><div class="shot-placeholder">TODO: SynToolkit screenshot — sidebar / tweaks</div></figure>
+      <figure class="shot"><div class="shot-placeholder">TODO: SynToolkit screenshot — graph detail</div></figure>
+      <figure class="shot"><div class="shot-placeholder">TODO: SynToolkit screenshot — games or audio</div></figure>
+    </div>
+  </section>
+
+  <section class="section wrap reveal" aria-labelledby="req-title">
+    <div class="section-head">
+      <div class="eyebrow">Requirements</div>
+      <h2 class="section-title" id="req-title">What you need</h2>
+    </div>
+    <ul class="card" style="padding:20px 24px;list-style:disc;padding-left:2rem;color:var(--text-dim)">
+      <li>Windows 10 or Windows 11</li>
+      <li>WinUI 3 runtime (bundled with the installer when provided)</li>
+      <li>Works alongside SynergyOS; not required to use the playbook, but installed by default from SynergyOS 1.7</li>
+    </ul>
+  </section>
+
+  <section class="section wrap reveal" id="download" aria-labelledby="dl-title">
+    <div class="section-head">
+      <div class="eyebrow">Download</div>
+      <h2 class="section-title" id="dl-title">Get SynToolkit</h2>
+    </div>
+    <article class="download-card">
+      <div class="plan-top">
+        <span class="badge">Installer</span>
+        <span class="badge badge-accent" data-release="SynToolkit" data-field="version">Latest</span>
+      </div>
+      <h3>SynToolkit</h3>
+      <p class="desc">Companion app for Windows 10 and Windows 11.</p>
+      <ul class="meta-list">
+        <li><span>Filename</span><span data-release="SynToolkit" data-field="filename">—</span></li>
+        <li><span>Size</span><span data-release="SynToolkit" data-field="size">—</span></li>
+        <li><span>License</span><span>GPL-3.0</span></li>
+      </ul>
+      <a class="btn btn-primary btn-block" href="https://github.com/Synergy-Tweaks/SynToolkit/releases/latest" data-repo="SynToolkit" data-ext=".exe">Download SynToolkit</a>
+      <p style="margin-top:14px;font-size:14px;color:var(--text-dim)">
+        <a href="https://github.com/Synergy-Tweaks/SynToolkit" data-link="syntoolkit" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Source on GitHub</a>
+        ·
+        <a href="https://github.com/Synergy-Tweaks/SynToolkit/releases" data-link="syntoolkit-releases" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Previous releases</a>
+      </p>
+    </article>
+  </section>
+
+  <section class="section wrap reveal" aria-labelledby="license-title">
+    <div class="section-head">
+      <div class="eyebrow">License</div>
+      <h2 class="section-title" id="license-title">GPL-3.0</h2>
+    </div>
+    <div class="card prose" style="max-width:none">
+      <p>SynToolkit is free software under the GNU General Public License v3.0. You can run, study, share, and modify it under that license. See the repository for the full text and copyright notices.</p>
+      <p>Credits for third-party libraries used by the app live on the <a href="credits.html">Credits</a> page (fill in as needed).</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="images/logo-sm.webp" alt="" width="52" height="52"> Synergy Tweaks</div>
+        <p class="footer-tag">Windows playbooks and tools from the Synergy-Tweaks org.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Projects</h4>
+        <a href="synergyos.html">SynergyOS</a>
+        <a href="syntoolkit.html">SynToolkit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="docs.html">Docs</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="credits.html">Credits</a>
+        <a href="https://dsc.gg/kwanteks" data-link="discord" target="_blank" rel="noopener noreferrer">Discord</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Synergy Tweaks</span><span>Not affiliated with Microsoft.</span></div>
+  </div>
+</footer>
+<script src="js/main.js?v=14" defer></script>
+</body>
+</html>
