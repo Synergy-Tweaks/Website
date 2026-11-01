@@ -36,8 +36,7 @@ window.SITE = {
       url: 'https://github.com/Synergy-Tweaks/Original-Post-Install',
     },
   },
-  /* Compatibility as documented on the SynergyOS README.
-     TODO: confirm with Kwanteks if this should become Windows 11 only. */
+  /* Compatibility as documented on the SynergyOS README. */
   compatibility: 'Windows 10 22H2 and Windows 11 22H2–26H2 (LTSC included; 26H2 experimental)',
   team: {
     leads: [

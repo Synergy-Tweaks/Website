@@ -1029,3 +1029,44 @@ code {
 @media (max-width: 380px) {
   .nav-brand span { max-width: 120px; overflow: hidden; text-overflow: ellipsis; }
 }
+
+/* Mobile nav: keep the menu button on screen */
+@media (max-width: 560px) {
+  .nav {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+  .nav-ext .btn-ghost { display: none; }
+  .nav-ext .btn {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 350px) {
+  .nav-brand span { display: none; }
+}
+
+/* Team avatars: portrait frame instead of an extreme face crop */
+.avatar {
+  width: 88px;
+  height: 110px;
+  border-radius: 16px;
+}
+.avatar img {
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+/* Fixed frames: block layout so both portraits crop the same way */
+.avatar {
+  display: block;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.shots.single { grid-template-columns: 1fr; max-width: 920px; margin: 0 auto; }
