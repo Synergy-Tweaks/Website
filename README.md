@@ -1,73 +1,110 @@
 # Synergy Tweaks website
 
-Static multi-page site for [Synergy Tweaks](https://github.com/Synergy-Tweaks): SynergyOS, SynToolkit, docs, about, privacy, and credits.
+The static site for [Synergy Tweaks](https://github.com/Synergy-Tweaks) — home for
+[SynergyOS](https://github.com/Synergy-Tweaks/SynergyOS),
+[SynToolkit](https://github.com/Synergy-Tweaks/SynToolkit), docs and the team.
 
-No framework, no build step, no runtime dependencies.
+Plain HTML, CSS and a little JavaScript. No framework, no build step, no runtime
+dependencies. Drop the folder on any static host and it runs.
 
-## Files
+## Pages
+
+| File | What it is |
+| --- | --- |
+| `index.html` | Home: what we build, facts, comparison, downloads |
+| `synergyos.html` | Playbook: requirements, install steps, download, risks, FAQ, changelog |
+| `syntoolkit.html` | The WinUI 3 companion app |
+| `docs.html` | Documentation index |
+| `about.html` | Team and contributors |
+| `privacy.html` | Privacy policy |
+| `credits.html` | Credits and third-party libraries |
+
+## Structure
 
 ```
-index.html            home
-synergyos.html        playbook page (install, download, FAQ, risks)
-syntoolkit.html       app page
-docs.html             docs index (links to GitHub + on-site guides)
-about.html            about / team
-privacy.html          privacy policy
-credits.html          credits
 styles.css            design tokens + components
-js/config.js          Discord, GitHub, socials, download fallbacks
-js/main.js            releases API, copy hash, reveals, JSON render
+js/config.js          org links, Discord, socials, download fallbacks
+js/main.js            release data, downloads, copy-SHA, reveals
+data/releases.json    generated release snapshot (do not edit by hand)
 data/known-issues.json
-data/changelog.json   optional offline fallback (live changelog uses GitHub Releases API)
-images/               logos, screenshots, icons, OG card
-fonts/                Nunito + Manrope (self-hosted)
+data/changelog.json   offline fallbacks
+images/               logos, screenshots, profile art, icons, OG card
+fonts/                Nunito + Manrope, self-hosted
+tools/check.mjs       page check
+tools/fetch-releases.mjs  regenerates data/releases.json
+.github/workflows/    release refresh + page check
 robots.txt
 sitemap.xml
-tools/check.mjs       page check
 ```
 
-## Run locally
+## Local development
 
 ```powershell
 python -m http.server 8080
 ```
 
-Open <http://localhost:8080/>.
+Open <http://localhost:8080/>. Any static server works.
 
-Bump `?v=` on `styles.css` and `js/main.js` after changing them.
+After editing `styles.css` or `js/main.js`, bump the `?v=` number in the HTML so
+browsers do not keep the old file.
 
-## Check
+## Release data
+
+Publishing a GitHub release needs no site edits. On load, `js/main.js` fills in
+version, filename, size, SHA-256 (asset digest), download count, download link and
+release notes straight from the GitHub API, then caches the result for an hour.
+
+`data/releases.json` is a snapshot for the cases where the API is rate-limited or
+offline:
+
+- `.github/workflows/releases.yml` refreshes it every 6 hours (or on demand) and
+  commits only when a release actually changes.
+- It carries no download counts, so the scheduled job does not commit on every run.
+- When the API fails, version, size, SHA and notes still render from the snapshot;
+  the download count hides rather than showing a wrong number.
+
+Download buttons always resolve the newest asset. The plain `href` points at
+`/releases/latest`, never a version-pinned file.
+
+## Checks
 
 ```powershell
 node tools/check.mjs
 ```
 
-## Config
+Runs on every push and pull request via `.github/workflows/check.yml`. It catches
+dead links, missing images, broken tags, version-pinned download URLs and leftover
+placeholders.
 
-Edit `js/config.js` for Discord, GitHub, YouTube, AME Wizard, and download fallbacks. Keep matching `href`s in the HTML in sync (no-JS fallback).
+## Configuration
 
-### Discord
+`js/config.js` holds Discord, GitHub, YouTube, AME Wizard and download fallbacks.
+Keep matching `href`s in the HTML in sync for the no-JavaScript case.
 
-Site uses `https://dsc.gg/kwanteks` (`js/config.js`). Other invites may still appear off-site (e.g. SynergyOS README badge).
+## Deploying
 
-## Downloads
+Any static host works — GitHub Pages, Cloudflare Pages, Namecheap, plain Apache.
+Upload the repository root; no server or database is involved.
 
-Buttons resolve the newest release asset from the GitHub API (and rewrite their `href` once data loads). Fallback `href` is `/releases/latest` — never a version-pinned asset URL. Release cards hydrate version, size, SHA-256 (when GitHub provides a digest), download counts and release notes with a one-hour `localStorage` cache.
+GitHub Pages (free for public repositories):
 
-## Automation
+1. **Settings → Pages**
+2. **Source:** Deploy from a branch → `main` → `/ (root)`
+3. Save. The site appears at `https://<org>.github.io/Website/` until a custom
+   domain is connected.
 
-Publishing a GitHub release needs **no site edits**. On load, `js/main.js` reads the newest releases and fills in version, filename, size, SHA-256 (asset digest), download count, download link and release notes.
+## Before a custom domain
 
-To survive GitHub's 60-requests-per-hour limit and offline visits, a snapshot lives in `data/releases.json`:
+`TODO-SET-DOMAIN` placeholders sit in the HTML meta tags, `robots.txt` and
+`sitemap.xml`. Replace them with the production origin, then set absolute
+`canonical` / `og:url` / `og:image` URLs and a `Sitemap:` line.
 
-- `.github/workflows/releases.yml` refreshes it every 6 hours (or on demand from the Actions tab) and commits when a release actually changes.
-- The snapshot holds no download counts, so the scheduled job does not commit on every run.
-- If the API fails, the site falls back to the snapshot: version, size, SHA and notes still render; the download count hides instead of showing a wrong number.
+## Contributing
 
-`.github/workflows/check.yml` runs `node tools/check.mjs` on every push and pull request. No secrets are needed; both workflows use the built-in `GITHUB_TOKEN`.
+Issues and pull requests are welcome. Run `node tools/check.mjs` before opening a
+PR, and do not hand-edit `data/releases.json` — it is generated.
 
-Manual steps left: deploying the site, and editing `js/config.js` / HTML only when links or copy change.
+## License
 
-## Production domain
-
-Replace every `TODO-SET-DOMAIN` in HTML meta tags, `robots.txt`, and `sitemap.xml` before launch. Set `SITE.origin` in `js/config.js` when you have it.
+Website code © Synergy Tweaks. SynergyOS and SynToolkit keep their own licenses in
+their repositories.
