@@ -108,3 +108,33 @@ PR, and do not hand-edit `data/releases.json` — it is generated.
 
 Website code © Synergy Tweaks. SynergyOS and SynToolkit keep their own licenses in
 their repositories.
+
+## Requirements
+
+- A modern browser with JavaScript enabled for the dynamic parts (release data,
+  scroll reveals, copy-SHA). The site still reads without JavaScript.
+- Python 3 only if you use `python -m http.server`; any static file server works.
+- Node.js 20 (the version CI uses) only for `tools/check.mjs` and
+  `tools/fetch-releases.mjs`.
+- No package manager, no dependency install, no compile step.
+
+## How the site fits together
+
+Each page in the root is a standalone HTML document. The header, navigation and
+footer markup is repeated per page; `styles.css` holds the design tokens and all
+component styles.
+
+`js/config.js` runs first and puts external URLs and release fallbacks on
+`window.SITE`. `js/main.js` then:
+
+- writes `href`s onto elements carrying `data-link` (the hard-coded HTML `href`s
+  are the no-JavaScript fallback),
+- toggles the scrolled header state and closes the mobile menu on navigate,
+- reveals `.reveal` elements with `IntersectionObserver`, skipping the animation
+  when the visitor prefers reduced motion,
+- copies a release SHA from the target element,
+- hydrates `[data-release][data-field]` slots and `a[data-repo]` download links.
+
+Content that does not change between releases lives in the HTML; anything tied to
+a GitHub release comes from the API at runtime, falling back to `data/*.json`.
+`tools/` holds the two Node scripts, and `.github/workflows/` runs them in CI.
