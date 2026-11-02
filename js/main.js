@@ -94,7 +94,7 @@
      Never use /releases/download/TAG/... in href — that looks version-pinned.
      Prefer GitHub's permanent /releases/latest/download/ASSET redirect. */
   const CACHE_KEY = 'synergy-releases-v3';
-  const TTL = 6 * 60 * 60 * 1000;
+  const TTL = 60 * 60 * 1000;
   const REPOS = ['SynergyOS', 'SynToolkit'];
 
   function latestDownloadUrl(repo, filename) {
@@ -123,6 +123,16 @@
   function formatSize(bytes) {
     const mb = bytes / 1e6;
     return (mb >= 100 ? Math.round(mb) : mb.toFixed(1)) + ' MB';
+  }
+
+  async function loadSnapshot() {
+    try {
+      const res = await fetch('data/releases.json', { cache: 'no-store' });
+      if (!res.ok) return null;
+      return await res.json();
+    } catch {
+      return null;
+    }
   }
 
   async function fetchRepoRelease(repo) {
@@ -169,11 +179,21 @@
           if (info.size) el.textContent = formatSize(info.size);
           break;
         case 'downloads':
-          el.textContent = Number(info.downloads).toLocaleString('en-US');
+          if (Number.isFinite(info.downloads)) {
+            el.textContent = Number(info.downloads).toLocaleString('en-US');
+            el.dataset.filled = '1';
+          }
           break;
         case 'sha':
           if (info.sha) el.textContent = info.sha;
           break;
+      }
+    });
+
+    document.querySelectorAll('.hero-downloads').forEach((wrap) => {
+      const value = wrap.querySelector('[data-field="downloads"]');
+      if (value && value.dataset.filled === '1') {
+        wrap.classList.add('is-ready');
       }
     });
 
@@ -195,7 +215,8 @@
         data = Object.fromEntries(REPOS.map((repo, i) => [repo, entries[i]]));
         writeCache(data);
       } catch {
-        return;
+        data = await loadSnapshot();
+        if (!data) return;
       }
     }
     applyReleaseData(data);
@@ -321,7 +342,7 @@
   }
 
   const CHANGELOG_CACHE = 'synergy-changelog-v2';
-  const CHANGELOG_TTL = 6 * 60 * 60 * 1000;
+  const CHANGELOG_TTL = 60 * 60 * 1000;
 
   function readChangelogCache(repo) {
     try {
@@ -347,11 +368,21 @@
   async function fetchRepoChangelogs(repo, limit) {
     const cached = readChangelogCache(repo);
     if (cached) return cached;
-    const res = await fetch(
-      `https://api.github.com/repos/Synergy-Tweaks/${repo}/releases?per_page=${limit}`
-    );
-    if (!res.ok) throw new Error(String(res.status));
-    const releases = await res.json();
+    let releases;
+    try {
+      const res = await fetch(
+        `https://api.github.com/repos/Synergy-Tweaks/${repo}/releases?per_page=${limit}`
+      );
+      if (!res.ok) throw new Error(String(res.status));
+      releases = await res.json();
+    } catch (err) {
+      const snap = await loadSnapshot();
+      const entry = snap && snap[repo];
+      if (!entry) throw err;
+      releases = [
+        { tag_name: entry.tag, name: entry.name, published_at: entry.published, prerelease: false, body: entry.notes, html_url: entry.url },
+      ];
+    }
     const data = (releases || [])
       .filter((r) => !r.draft)
       .slice(0, limit)

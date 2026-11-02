@@ -52,7 +52,21 @@ Site uses `https://dsc.gg/kwanteks` (`js/config.js`). Other invites may still ap
 
 ## Downloads
 
-Buttons resolve the newest release asset from the GitHub API (and rewrite their `href` once data loads). Fallback `href` is `/releases/latest` — never a version-pinned asset URL. Release cards hydrate version, size, and SHA-256 (when GitHub provides a digest) with a six-hour `localStorage` cache.
+Buttons resolve the newest release asset from the GitHub API (and rewrite their `href` once data loads). Fallback `href` is `/releases/latest` — never a version-pinned asset URL. Release cards hydrate version, size, SHA-256 (when GitHub provides a digest), download counts and release notes with a one-hour `localStorage` cache.
+
+## Automation
+
+Publishing a GitHub release needs **no site edits**. On load, `js/main.js` reads the newest releases and fills in version, filename, size, SHA-256 (asset digest), download count, download link and release notes.
+
+To survive GitHub's 60-requests-per-hour limit and offline visits, a snapshot lives in `data/releases.json`:
+
+- `.github/workflows/releases.yml` refreshes it every 6 hours (or on demand from the Actions tab) and commits when a release actually changes.
+- The snapshot holds no download counts, so the scheduled job does not commit on every run.
+- If the API fails, the site falls back to the snapshot: version, size, SHA and notes still render; the download count hides instead of showing a wrong number.
+
+`.github/workflows/check.yml` runs `node tools/check.mjs` on every push and pull request. No secrets are needed; both workflows use the built-in `GITHUB_TOKEN`.
+
+Manual steps left: deploying the site, and editing `js/config.js` / HTML only when links or copy change.
 
 ## Production domain
 

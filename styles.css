@@ -835,7 +835,7 @@ code {
 }
 .footer-socials a:hover { color: var(--text); border-color: var(--line-strong); }
 .footer-socials svg { width: 16px; height: 16px; }
-.footer-col h4 {
+.footer-col h3 {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -1070,3 +1070,7 @@ code {
 }
 
 .shots.single { grid-template-columns: 1fr; max-width: 920px; margin: 0 auto; }
+
+/* Download count next to the hero actions; hidden until hydrated */
+.hero-downloads { display: none; }
+.hero-downloads.is-ready { display: inline; }

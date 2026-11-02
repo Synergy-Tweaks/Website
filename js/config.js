@@ -18,10 +18,9 @@ window.SITE = {
       releases: 'https://github.com/Synergy-Tweaks/SynergyOS/releases',
       latest: 'https://github.com/Synergy-Tweaks/SynergyOS/releases/latest',
       ext: '.apbx',
-      /* Stable asset name → unpinned GitHub redirect (never /releases/download/TAG/...) */
-      asset: 'SynergyOS.apbx',
-      fallback:
-        'https://github.com/Synergy-Tweaks/SynergyOS/releases/latest/download/SynergyOS.apbx',
+      /* Asset name is resolved from the API; fallback is the release page */
+      asset: '',
+      fallback: 'https://github.com/Synergy-Tweaks/SynergyOS/releases/latest',
     },
     SynToolkit: {
       url: 'https://github.com/Synergy-Tweaks/SynToolkit',

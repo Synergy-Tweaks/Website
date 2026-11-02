@@ -1,0 +1,24 @@
+{
+  "SynergyOS": {
+    "tag": "1.7",
+    "name": "SynergyOS v0.7",
+    "published": "2026-10-23T00:53:34Z",
+    "url": "https://github.com/Synergy-Tweaks/SynergyOS/releases/tag/1.7",
+    "notes": "# SynergyOS v0.7\r\n## ✨ Changes\r\n```diff\r\n+ 26H2 Experimental Support\r\n+ SynToolkit Installation by Default\r\n- Removed Defender Removal Checkbox as it was causing bugs with removal\r\n```\r\n## ⚠️ Notes\r\n- Defaults unchanged for existing options: Remove Edge and Disable Xbox Services remain checked by default, SynToolkit will now install by default. \r\n- ISO Injection is still under Development, If you choose to utilize ISO Injection make sure to re-run the playbook when you install the modified ISO.\r\n- 26H2 is experimental, Unexpected bugs may arise.\r\n- If you removed defender in previous version then you'll need to reinstall windows to apply this version. \r\n\r\n# SynToolkit v1.7\r\n**Highlights:** The biggest update yet. This release adds new Games Tab, Audio Mixer, Tweaks, and Uninstaller tabs, a heavily reworked Power Plans tab, GPU driver downloads, and a round of UI polish and fixes.\r\n\r\n👉 **Changelogs:** https://github.com/Synergy-Tweaks/SynToolkit/releases\r\n**Download:** `SynToolkit-Setup-1.7.0.exe` through the SynergyOS Setup when prompted in Ame Wizard",
+    "filename": "SynergyOS.apbx",
+    "size": 21357554,
+    "sha": "a2861380b505173179fd5fef773d0f3872728dfdf00f0e1cfab5f7fb67768eef",
+    "download": "https://github.com/Synergy-Tweaks/SynergyOS/releases/latest/download/SynergyOS.apbx"
+  },
+  "SynToolkit": {
+    "tag": "1.7",
+    "name": "SynToolkit 1.7",
+    "published": "2026-10-22T23:30:21Z",
+    "url": "https://github.com/Synergy-Tweaks/SynToolkit/releases/tag/1.7",
+    "notes": "## Happy Fall 🍂🪾\r\n\r\nThis release adds new Games, Audio Mixer, Tweaks, and Uninstaller tabs, a heavily reworked Power Plans tab, GPU driver downloads, and a round of UI polish and fixes.\r\n\r\n### New\r\n\r\n- **Audio Mixer tab**: A dedicated tab for managing your sound. Adjust the master output level, set a default level for new audio apps, and fine-tune individual app volumes while they play. Adjusted apps are remembered and restored the next time they play audio, and media sources are shown one at a time so they're easy to find.\r\n- **Games tab**: Import the games you already own and launch them straight from SynToolkit. Discord Rich Presence has been updated to work with the new tab.\r\n- **Tweaks tab**: See which tweaks SynergyOS applies, with toggles and extra options to adjust each one.\r\n- **Uninstaller tab**: Uninstall apps without leaving SynToolkit.\r\n- **Power Plans rework**: Create and modify your own power plans, and explore the settings of the preinstalled ones. You can also import a plan or switch plans from the right-click menu.\r\n- **GPU driver downloads**: The GPU tab should now let you download drivers and optimize them from within the app.\r\n- **Classic right-click menu**: Restore the classic Windows 10 right-click context menu on Windows 11, so you get the full menu without clicking \"Show more options.\"\r\n- **More tweaks**: A new SteamWebHelper toggle, MMCSS settings with a Default / Optimized / Disabled dropdown, and a new quality-of-life taskbar tweak.\r\n- **Outdated SynergyOS install notice**: SynToolkit now tells you if you're on an old SynergyOS install, with improved detection.\r\n- **New Home tiles**: Quick links for bug reports, the GitHub repository, and more.\r\n- **New wallpaper**: One new fall wallpaper.\r\n\r\n### Improved\r\n\r\n- **Needs Attention**: The tab icon now changes when there's nothing that needs your attention. Ignore now lasts for a time you choose, and a new ignore/restore control sits in the top right.\r\n- **Tweaks organization**: Tweaks that were scattered across the app are now grouped in one place.\r\n- **UI polish**: A smaller sidebar and visual improvements for light mode.\r\n- **Game cover art**: Cover art picked up during a Games scan should now be more reliable.\r\n\r\n### Fixed\r\n\r\n- **App installs**: Battle.net, Spotify, and Visual C++ now install correctly.\r\n- **Games tab**: The Remove button is no longer cut off.\r\n- **Tab crashes**: Fixed tabs crashing after the recent additions.\r\n\r\n### Notes\r\n\r\n- Outdated SynergyOS install detection and the cover art fix are still being tested. Please report anything unexpected through the bug report tile or the issues page.\r\n\r\n**Download:** `SynToolkit-Setup-1.7.0.exe` through the SynergyOS Setup when prompted in Ame Wizard",
+    "filename": "SynToolkit-Setup-1.7.0-Stable.exe",
+    "size": 141202038,
+    "sha": "705400c1bfdbbf9b5152d5c5be28461b8f2b0ba55939d0f6af8373f9b24b09eb",
+    "download": "https://github.com/Synergy-Tweaks/SynToolkit/releases/latest/download/SynToolkit-Setup-1.7.0-Stable.exe"
+  }
+}
