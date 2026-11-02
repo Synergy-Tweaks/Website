@@ -99,9 +99,10 @@ These protect the "never link to a version-pinned asset" rule:
 
 ### Home page content guards
 
-`index.html` must still contain the literal comparison placeholder
-`TODO: fill with my measured values`, and must not contain `1200+`, `Real FPS`,
-`turbo-charged`, or `Happy holidays` (case-insensitive).
+`index.html` must still carry the `MOCK-DATA` comment and the visible
+"Sample figures" note marking the comparison numbers as placeholders, and must
+not contain `1200+`, `Real FPS`, `turbo-charged`, or `Happy holidays`
+(case-insensitive).
 
 ## What it does not check
 

@@ -114,7 +114,10 @@ must(
 );
 
 const index = readFileSync("index.html", "utf8");
-must(index.includes("TODO: fill with my measured values"), "comparison TODOs missing from home");
+must(
+  index.includes("MOCK-DATA") && index.includes("Sample figures"),
+  "comparison sample-data marker missing from home"
+);
 must(!/1200\+|Real FPS|turbo-charged|Happy holidays/i.test(index), "hype or holiday leftovers on home");
 
 if (fail.length) {
