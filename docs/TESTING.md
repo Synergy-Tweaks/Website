@@ -99,10 +99,10 @@ These protect the "never link to a version-pinned asset" rule:
 
 ### Home page content guards
 
-`index.html` must still carry the `MOCK-DATA` comment and the visible
-"Sample figures" note marking the comparison numbers as placeholders, and must
-not contain `1200+`, `Real FPS`, `turbo-charged`, or `Happy holidays`
-(case-insensitive).
+`index.html` must not carry stale `MOCK-DATA` / "Sample figures" markers, must
+include the measured comparison figures (`2.8 GB`, `2.0 GB`) plus controlled-
+environment and drivers-installed disclaimers, and must not contain `1200+`,
+`Real FPS`, `turbo-charged`, or `Happy holidays` (case-insensitive).
 
 ## What it does not check
 

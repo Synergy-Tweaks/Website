@@ -337,14 +337,11 @@ You do **not** bump `?v=` when only HTML changes.
   domain is defined in the repository, so do not invent one and do not delete the
   placeholders: replace them only when the real origin exists, and then set
   absolute URLs everywhere at once.
-- **The home page comparison numbers** — the stock-vs-tweaked RAM and disk
-  figures in `index.html` are samples, not measurements. They are marked by an
-  HTML comment containing `MOCK-DATA` (directly above `<div class="compare">`)
-  and by the visible "Sample figures" `.todo-note`. Replace the four values —
-  stock idle RAM + process count, stock disk, SynergyOS idle RAM + process
-  count, SynergyOS disk — then update the section lede, the `.todo-note` and
-  delete the comment. `tools/check.mjs` asserts the marker and the note are
-  still present, so removing them is a deliberate step.
+- **The home page comparison numbers** — stock vs SynergyOS idle RAM and process
+  counts in `index.html` are measured on a controlled 4 GB setup (SynergyOS with
+  drivers installed). Keep the `.compare-footnote` disclaimer that results vary.
+  `tools/check.mjs` asserts the measured figures and disclaimer stay present and
+  that stale `MOCK-DATA` / "Sample figures" markers stay gone.
 - **`/releases/download/<tag>/…` URLs** — never version-pinned anywhere in HTML,
   `js/config.js` or `js/main.js`. Always the `/releases/latest/download/<asset>`
   form or the `/releases/latest` page. The checker fails a numeric tag.

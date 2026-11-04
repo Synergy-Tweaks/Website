@@ -25,7 +25,7 @@
 <link rel="apple-touch-icon" href="images/logo.webp">
 <link rel="preload" href="fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=21">
+<link rel="stylesheet" href="styles.css?v=20">
 <script src="js/config.js"></script>
 </head>
 <body>
@@ -118,7 +118,7 @@
       <h2 class="section-title" id="features-title">What SynergyOS changes</h2>
       <p class="section-lede">Concrete options. You choose most of them during setup.</p>
     </div>
-    <div class="feature-grid grid-3">
+    <div class="feature-grid grid-4">
       <article class="card">
         <div class="card-icon"><img src="images/icons/performance.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
         <h3>Performance tuning</h3>
@@ -166,34 +166,40 @@
     <div class="section-head center">
       <div class="eyebrow">Comparison</div>
       <h2 class="section-title" id="compare-title">Stock Windows vs SynergyOS</h2>
-      <p class="section-lede">Qualitative differences today. Figures below are sample placeholders until our own tests are published.</p>
+      <p class="section-lede">Same Windows 11 26H2 base — stock on the left, SynergyOS on the right. Task Manager screenshots from a clean compare run.</p>
     </div>
-    <!-- MOCK-DATA: sample numbers, not measured. Replace the four values below with
-         the 26H2 VM run, then delete this comment. Stock col: idle RAM, disk.
-         SynergyOS col: idle RAM, disk. Also update the lede and the todo-note. -->
     <div class="compare">
       <div class="compare-col">
         <h3>Stock Windows</h3>
-        <div class="compare-sub">Out of the box</div>
+        <div class="compare-sub">Windows 11 26H2 · out of the box</div>
+        <button type="button" class="compare-shot lightbox-trigger" data-lightbox-src="images/screenshots/stock-26h2.webp" data-lightbox-caption="Stock Windows 11 26H2" aria-label="Enlarge Stock 26H2 screenshot">
+          <img src="images/screenshots/stock-26h2.webp" alt="Task Manager on stock Windows 11 26H2 using about 2.8 GB of 4 GB RAM with roughly 160 to 170 processes" width="1600" height="863" loading="lazy" decoding="async">
+          <span class="compare-shot-label">Stock 26H2 · click to enlarge</span>
+        </button>
         <ul class="compare-list">
           <li><span class="mark bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M6 18L18 6"/></svg></span> Telemetry and ads enabled by default</li>
           <li><span class="mark bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M6 18L18 6"/></svg></span> Inbox apps and background services you may not use</li>
-          <li><span class="mark bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M6 18L18 6"/></svg></span> <span>Idle RAM: <em>3.2 GB</em> across 178 processes</span></li>
-          <li><span class="mark bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M6 18L18 6"/></svg></span> <span>Disk footprint: <em>38 GB</em></span></li>
+          <li><span class="mark bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M6 18L18 6"/></svg></span> <span>Idle RAM: <em>2.8 GB</em> of 4 GB</span></li>
+          <li><span class="mark bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M6 18L18 6"/></svg></span> <span>~160–170 processes</span></li>
         </ul>
       </div>
       <div class="compare-col synergy">
         <h3>SynergyOS</h3>
-        <div class="compare-sub">After a clean apply</div>
+        <div class="compare-sub">Windows 11 26H2 · after a clean apply</div>
+        <button type="button" class="compare-shot lightbox-trigger" data-lightbox-src="images/screenshots/synergyos-26h2.webp" data-lightbox-caption="SynergyOS on Windows 11 26H2" aria-label="Enlarge SynergyOS 26H2 screenshot">
+          <img src="images/screenshots/synergyos-26h2.webp" alt="Task Manager on SynergyOS 26H2 using about 2.0 GB of 4 GB RAM with roughly 80 to 90 processes and drivers installed" width="1600" height="871" loading="lazy" decoding="async">
+          <span class="compare-shot-label">SynergyOS 26H2 · click to enlarge</span>
+        </button>
         <ul class="compare-list">
           <li><span class="mark good" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg></span> Telemetry reduced; optional further hardening</li>
           <li><span class="mark good" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg></span> Debloated with user-selected keep options</li>
-          <li><span class="mark good" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg></span> <span>Idle RAM: <em>1.9 GB</em> across 118 processes</span></li>
-          <li><span class="mark good" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg></span> <span>Disk footprint: <em>26 GB</em></span></li>
+          <li><span class="mark good" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg></span> Performance tuning and optimization</li>
+          <li><span class="mark good" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg></span> <span>Idle RAM: <em>2.0 GB</em> of 4 GB</span></li>
+          <li><span class="mark good" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg></span> <span>~80–90 processes with drivers installed</span></li>
         </ul>
-        <p class="todo-note">Sample figures — swapped for our measured values once the 26H2 VM run is done.</p>
       </div>
     </div>
+    <p class="compare-footnote">Measured in a controlled 4 GB environment. Results will vary by hardware and configuration.</p>
   </section>
 
   <section class="section wrap reveal" id="syntoolkit" aria-labelledby="toolkit-title">
@@ -203,10 +209,10 @@
       <p class="section-lede">WinUI 3 app for Windows 10 and 11 with a live hardware dashboard, real-time graph, and collapsible sidebar. GPL-3.0.</p>
     </div>
     <div class="shots single">
-      <figure class="shot">
-        <img src="images/syntoolkit.webp" alt="SynToolkit running on a SynergyOS desktop" width="1600" height="912" loading="lazy" decoding="async">
-        <figcaption class="shot-label">SynToolkit</figcaption>
-      </figure>
+      <button type="button" class="shot lightbox-trigger" data-lightbox-src="images/screenshots/syntoolkit-1.7.webp" data-lightbox-caption="SynToolkit 1.7" aria-label="Enlarge SynToolkit 1.7 screenshot">
+        <img src="images/screenshots/syntoolkit-1.7.webp" alt="SynToolkit 1.7 dashboard with live hardware graph" width="1600" height="869" loading="lazy" decoding="async">
+        <span class="shot-label">SynToolkit 1.7 · click to enlarge</span>
+      </button>
     </div>
     <p style="margin-top:20px"><a class="btn btn-secondary" href="syntoolkit.html">SynToolkit details</a></p>
   </section>
@@ -334,6 +340,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=16" defer></script>
+<script src="js/main.js?v=17" defer></script>
 </body>
 </html>

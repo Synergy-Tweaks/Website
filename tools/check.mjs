@@ -114,10 +114,9 @@ must(
 );
 
 const index = readFileSync("index.html", "utf8");
-must(
-  index.includes("MOCK-DATA") && index.includes("Sample figures"),
-  "comparison sample-data marker missing from home"
-);
+must(!index.includes("MOCK-DATA") && !index.includes("Sample figures"), "stale comparison sample-data markers on home");
+must(/2\.8 GB/.test(index) && /2\.0 GB/.test(index), "comparison RAM figures missing from home");
+must(/controlled/.test(index) && /drivers installed/.test(index), "comparison disclaimers missing from home");
 must(!/1200\+|Real FPS|turbo-charged|Happy holidays/i.test(index), "hype or holiday leftovers on home");
 
 if (fail.length) {

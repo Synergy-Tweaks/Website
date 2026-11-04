@@ -28,7 +28,11 @@ js/main.js            release data, downloads, copy-SHA, reveals
 data/releases.json    generated release snapshot (do not edit by hand)
 data/known-issues.json
 data/changelog.json   offline fallbacks
-images/               logos, screenshots, profile art, icons, OG card
+images/
+  logo.webp, logo-sm.webp, og.jpg
+  icons/              feature icons
+  profiles/           team avatars
+  screenshots/        stock vs SynergyOS, SynToolkit
 fonts/                Nunito + Manrope, self-hosted
 tools/check.mjs       page check
 tools/fetch-releases.mjs  regenerates data/releases.json

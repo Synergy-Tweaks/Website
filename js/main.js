@@ -467,4 +467,75 @@
       }
     } catch {}
   });
+
+  /* Screenshot lightbox */
+  (function initLightbox() {
+    const triggers = Array.from(document.querySelectorAll('.lightbox-trigger'));
+    if (!triggers.length) return;
+
+    const root = document.createElement('div');
+    root.className = 'lightbox';
+    root.id = 'lightbox';
+    root.setAttribute('role', 'dialog');
+    root.setAttribute('aria-modal', 'true');
+    root.setAttribute('aria-label', 'Screenshot viewer');
+    root.innerHTML = `
+      <div class="lightbox-dialog">
+        <button type="button" class="lightbox-prev" aria-label="Previous image">‹</button>
+        <button type="button" class="lightbox-next" aria-label="Next image">›</button>
+        <button type="button" class="lightbox-close" aria-label="Close">×</button>
+        <img class="lightbox-img" src="" alt="">
+        <div class="lightbox-caption"></div>
+      </div>`;
+    document.body.appendChild(root);
+
+    const img = root.querySelector('.lightbox-img');
+    const caption = root.querySelector('.lightbox-caption');
+    let index = 0;
+    let lastFocus = null;
+
+    function openAt(i) {
+      index = (i + triggers.length) % triggers.length;
+      const t = triggers[index];
+      const src = t.getAttribute('data-lightbox-src') || t.querySelector('img')?.src || '';
+      const cap = t.getAttribute('data-lightbox-caption') || '';
+      const alt = t.querySelector('img')?.alt || cap;
+      img.src = src;
+      img.alt = alt;
+      caption.textContent = cap;
+      root.classList.toggle('single-mode', triggers.length < 2);
+      root.classList.add('is-open');
+      document.body.classList.add('lightbox-open');
+      document.documentElement.classList.add('lightbox-open');
+      root.querySelector('.lightbox-close').focus();
+    }
+
+    function close() {
+      root.classList.remove('is-open');
+      document.body.classList.remove('lightbox-open');
+      document.documentElement.classList.remove('lightbox-open');
+      img.removeAttribute('src');
+      if (lastFocus) lastFocus.focus();
+    }
+
+    triggers.forEach((t, i) => {
+      t.addEventListener('click', () => {
+        lastFocus = t;
+        openAt(i);
+      });
+    });
+
+    root.querySelector('.lightbox-close').addEventListener('click', close);
+    root.querySelector('.lightbox-prev').addEventListener('click', () => openAt(index - 1));
+    root.querySelector('.lightbox-next').addEventListener('click', () => openAt(index + 1));
+    root.addEventListener('click', (e) => {
+      if (e.target === root) close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!root.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') openAt(index - 1);
+      else if (e.key === 'ArrowRight') openAt(index + 1);
+    });
+  })();
 })();

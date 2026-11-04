@@ -416,6 +416,16 @@ code {
 }
 .card-icon img { width: 26px; height: 26px; }
 
+.feature-grid.grid-4 .card {
+  padding: 20px;
+}
+.feature-grid.grid-4 .card h3 {
+  font-size: 1.05rem;
+}
+.feature-grid.grid-4 .card p {
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
 .feature-grid .card:hover {
   border-color: var(--line-strong);
   transform: translateY(-2px);
@@ -448,7 +458,48 @@ code {
   color: var(--text-faint);
   font-size: 13px;
   font-weight: 600;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
+}
+.compare-shot {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 0 18px;
+  padding: 0;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #000;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  cursor: zoom-in;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  transition: border-color 0.18s, transform 0.18s;
+}
+.compare-shot:hover,
+.compare-shot:focus-visible {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+.compare-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  pointer-events: none;
+}
+.compare-shot-label {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(5, 5, 6, 0.82);
+  border: 1px solid var(--line);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text);
 }
 .compare-list li {
   display: flex;
@@ -490,6 +541,14 @@ code {
   font-size: 13px;
   font-weight: 600;
 }
+.compare-footnote {
+  margin: 16px auto 0;
+  max-width: 52rem;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-faint);
+  line-height: 1.45;
+}
 
 /* ---------- Screenshot slots ---------- */
 .shots {
@@ -499,16 +558,30 @@ code {
 }
 .shot {
   position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
   aspect-ratio: 16 / 10;
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: var(--bg-soft);
   overflow: hidden;
+  cursor: zoom-in;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  transition: border-color 0.18s, transform 0.18s;
+}
+.shot:hover,
+.shot:focus-visible {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
 }
 .shot img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  pointer-events: none;
 }
 .shot-placeholder {
   display: grid;
@@ -1070,6 +1143,76 @@ code {
 }
 
 .shots.single { grid-template-columns: 1fr; max-width: 920px; margin: 0 auto; }
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.lightbox.is-open { display: flex; }
+.lightbox-dialog {
+  position: relative;
+  max-width: min(96vw, 1400px);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.lightbox-img {
+  max-width: 96vw;
+  max-height: calc(92vh - 48px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+.lightbox-caption {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-align: center;
+}
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: rgba(20, 20, 24, 0.9);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+}
+.lightbox-close { top: -8px; right: -8px; font-size: 28px; }
+.lightbox-prev { left: -56px; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: -56px; top: 50%; transform: translateY(-50%); }
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover { border-color: var(--text-faint); background: var(--bg-elevated); }
+.lightbox.single-mode .lightbox-prev,
+.lightbox.single-mode .lightbox-next { display: none; }
+html.lightbox-open,
+body.lightbox-open { overflow: hidden; }
+@media (max-width: 720px) {
+  .lightbox-prev { left: 8px; }
+  .lightbox-next { right: 8px; }
+  .lightbox-close { top: 8px; right: 8px; }
+}
 
 /* Download count next to the hero actions; hidden until hydrated */
 .hero-downloads { display: none; }

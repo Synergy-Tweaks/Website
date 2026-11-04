@@ -19,7 +19,7 @@
 <link rel="icon" href="images/logo-sm.webp" type="image/webp">
 <link rel="preload" href="fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=21">
+<link rel="stylesheet" href="styles.css?v=20">
 <script src="js/config.js"></script>
 </head>
 <body>
@@ -83,10 +83,10 @@
       <h2 class="section-title" id="shots-title">Look</h2>
     </div>
     <div class="shots single">
-      <figure class="shot">
-        <img src="images/syntoolkit.webp" alt="SynToolkit on a SynergyOS desktop" width="1600" height="912" loading="lazy" decoding="async">
-        <figcaption class="shot-label">Dashboard</figcaption>
-      </figure>
+      <button type="button" class="shot lightbox-trigger" data-lightbox-src="images/screenshots/syntoolkit-1.7.webp" data-lightbox-caption="SynToolkit 1.7" aria-label="Enlarge SynToolkit 1.7 screenshot">
+        <img src="images/screenshots/syntoolkit-1.7.webp" alt="SynToolkit 1.7 dashboard with live hardware graph and sidebar" width="1600" height="869" loading="lazy" decoding="async">
+        <span class="shot-label">SynToolkit 1.7 · click to enlarge</span>
+      </button>
     </div>
   </section>
 
@@ -98,7 +98,7 @@
     <ul class="card" style="padding:20px 24px;list-style:disc;padding-left:2rem;color:var(--text-dim)">
       <li>Windows 10 or Windows 11</li>
       <li>WinUI 3 runtime (bundled with the installer when provided)</li>
-      <li>Works alongside SynergyOS; not required to use the playbook, but installed by default from SynergyOS 1.7</li>
+      <li>Requires SynergyOS — designed for it and only works with it</li>
     </ul>
   </section>
 
@@ -168,6 +168,6 @@
     <div class="footer-bottom"><span>© 2026 Synergy Tweaks</span><span>Not affiliated with Microsoft.</span></div>
   </div>
 </footer>
-<script src="js/main.js?v=16" defer></script>
+<script src="js/main.js?v=17" defer></script>
 </body>
 </html>
