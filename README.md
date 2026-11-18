@@ -33,7 +33,7 @@ images/
   icons/              feature icons
   profiles/           team avatars
   screenshots/        stock vs SynergyOS, SynToolkit
-fonts/                Nunito + Manrope, self-hosted
+fonts/                Manrope, self-hosted (Anton and Nunito files kept)
 tools/check.mjs       page check
 tools/fetch-releases.mjs  regenerates data/releases.json
 .github/workflows/    release refresh + page check

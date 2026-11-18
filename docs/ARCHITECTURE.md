@@ -105,7 +105,7 @@ The "never `releases/download/TAG/...`" rule is enforced in `tools/check.mjs`, s
 | Cache helpers (`readCache`/`writeCache`, `readChangelogCache`/`writeChangelogCache`) | `js/main.js` | TTL-guarded `localStorage` wrappers; all failures are swallowed so private-mode or quota errors degrade to network-only. |
 | `renderReleaseBody()` | `js/main.js` | Minimal, escape-first markdown renderer for GitHub release notes. |
 | `fillFromJson(selector, url, render)` | `js/main.js` | Generic "fetch a JSON file and render into one root" helper, used for known issues. |
-| Design tokens | `styles.css` `:root` | Colors (`--bg`, `--text`, `--accent`, `--warn`, `--danger`), radii, shadows, font stacks (`Nunito` display, `Manrope` body), layout (`--max: 1120px`, `--nav-h: 72px`). |
+| Design tokens | `styles.css` `:root` | Colors (`--bg`, `--text`, `--accent`, `--warn`, `--danger`), radii, shadows, font stacks (`--font-display` and `--font-body` both Manrope, `--font-mono`), layout (`--max: 1120px`, `--nav-h: 72px`). |
 | `.reveal` / `.is-visible` | HTML + `js/main.js` + `styles.css` | Scroll-reveal animation, auto-disabled when `prefers-reduced-motion: reduce` matches. |
 | `tools/check.mjs` | `tools/` | Zero-dependency site linter — the closest thing the project has to a test suite. |
 
@@ -130,7 +130,7 @@ data/releases.json     generated release snapshot (CI-owned, do not hand-edit)
 data/known-issues.json curated known-issues payload
 data/changelog.json    curated offline changelog reference
 images/                logos, OG card, banners, `icons/`, `profiles/`
-fonts/                 self-hosted Nunito, Manrope, Anton (woff2)
+fonts/                 self-hosted Manrope and Anton (woff2); the unused Nunito file is still on disk
 tools/check.mjs        static site linter, run by CI
 tools/fetch-releases.mjs  regenerates data/releases.json
 .github/workflows/     check.yml, releases.yml

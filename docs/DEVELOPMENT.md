@@ -67,7 +67,8 @@ One stylesheet, deliberately ordered so that later rules win without
 1. Banner comment and `:root` design tokens (lines 3–40): colours (`--bg`,
    `--text`, `--text-dim`, `--accent`, `--warn`, `--danger`), spacing scale
    (`--space-1` … `--space-9`), radii, shadows, font stacks (`--font-display`
-   Nunito, `--font-body` Manrope) and layout constants (`--max: 1120px`,
+   and `--font-body` are both Manrope; `--font-mono` is the system mono stack)
+   and layout constants (`--max: 1120px`,
    `--nav-h: 72px`).
 2. `@font-face` blocks for the self-hosted woff2 files in `fonts/`.
 3. Base element styles (reset, `body`, headings, links, `:focus-visible`).
@@ -118,7 +119,7 @@ URL.
 of `<body>`:
 
 ```html
-<script src="js/main.js?v=16" defer></script>
+<script src="js/main.js?v=17" defer></script>
 ```
 
 It reads `window.SITE || {}`, so a page that fails to load `config.js` degrades to
@@ -172,18 +173,18 @@ order: escape first, then format.
 `styles.css` and `js/main.js` are referenced with a hand-maintained query string:
 
 ```html
-<link rel="stylesheet" href="styles.css?v=21">
-<script src="js/main.js?v=16" defer></script>
+<link rel="stylesheet" href="styles.css?v=23">
+<script src="js/main.js?v=17" defer></script>
 ```
 
 Both files carry **the same number on all seven pages** and the two numbers move
-independently — the stylesheet is at `v=21`, the script at `v=16`. After editing
+independently — the stylesheet is at `v=23`, the script at `v=17`. After editing
 either file, increment its number in every page:
 
 ```powershell
 # stylesheet change
 (Get-ChildItem *.html) | ForEach-Object {
-  (Get-Content $_ -Raw) -replace 'styles\.css\?v=21', 'styles.css?v=22' |
+  (Get-Content $_ -Raw) -replace 'styles\.css\?v=23', 'styles.css?v=24' |
     Set-Content $_ -NoNewline
 }
 ```
@@ -291,9 +292,9 @@ or a page nobody can navigate to (not caught).
 1. **Create the file** at the repository root. Copy a small existing page such as
    `docs.html` as the skeleton so the head, nav, footer and script tags come with
    it. Every page must have:
-   - `<link rel="stylesheet" href="styles.css?v=21">`
+   - `<link rel="stylesheet" href="styles.css?v=23">`
    - `<script src="js/config.js"></script>` in `<head>`
-   - `<script src="js/main.js?v=16" defer></script>` before `</body>`
+   - `<script src="js/main.js?v=17" defer></script>` before `</body>`
    - `name="description"`, `og:title`, `theme-color`, `rel="canonical"`
    - `<a class="skip-link" href="#main">`, `<main id="main">`, exactly one `<h1>`
 2. **Add the nav link twice** in every page — once in `.nav-links` (desktop) and

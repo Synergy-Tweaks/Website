@@ -152,8 +152,8 @@ pick up edits. Current values:
 
 | Asset | Reference | Version |
 | --- | --- | --- |
-| `styles.css` | `styles.css?v=21` | `21` |
-| `js/main.js` | `js/main.js?v=16` | `16` |
+| `styles.css` | `styles.css?v=23` | `23` |
+| `js/main.js` | `js/main.js?v=17` | `17` |
 | `js/config.js` | `js/config.js` (no query) | — |
 
 Rules:

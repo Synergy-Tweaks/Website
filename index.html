@@ -23,9 +23,8 @@
 
 <link rel="icon" href="images/logo-sm.webp" type="image/webp">
 <link rel="apple-touch-icon" href="images/logo.webp">
-<link rel="preload" href="fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=20">
+<link rel="stylesheet" href="styles.css?v=27">
 <script src="js/config.js"></script>
 </head>
 <body>
@@ -66,32 +65,37 @@
 
 <main id="main">
   <section class="hero wrap">
-    <div class="hero-brand">
-      <img src="images/logo.webp" alt="" width="256" height="256" decoding="async">
-      Synergy Tweaks
+    <div class="hero-copy">
+      <p class="eyebrow">Windows playbook</p>
+      <h1>Windows, trimmed for <em>performance</em></h1>
+      <p class="hero-sub">SynergyOS is an AME Wizard playbook that removes bloat, cuts telemetry, and applies optional tweaks. SynToolkit is the WinUI 3 app that sits on top of it.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/Synergy-Tweaks/SynergyOS/releases/latest" data-repo="SynergyOS" data-ext=".apbx">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+          Download SynergyOS
+        </a>
+        <a class="btn btn-secondary" href="docs.html">Read the docs</a>
+      </div>
+      <p class="hero-meta">Free · Open source · No account<span class="hero-downloads"> · <span data-release="SynergyOS" data-field="downloads">0</span> downloads</span></p>
     </div>
-    <h1>Windows, trimmed for <em>performance</em></h1>
-    <p class="hero-sub">SynergyOS is an AME Wizard playbook that removes bloat, cuts telemetry, and applies optional tweaks. SynToolkit is the WinUI 3 app that sits on top of it.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="https://github.com/Synergy-Tweaks/SynergyOS/releases/latest" data-repo="SynergyOS" data-ext=".apbx">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
-        Download SynergyOS
-      </a>
-      <a class="btn btn-secondary" href="docs.html">Read the docs</a>
-      <a class="btn btn-ghost" href="https://github.com/Synergy-Tweaks" data-link="org" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </div>
-    <p class="hero-meta">Free · Open source · No account<span class="hero-downloads"> · <span data-release="SynergyOS" data-field="downloads">0</span> downloads</span></p>
+    <figure class="hero-figure">
+      <button type="button" class="shot lightbox-trigger" data-lightbox-src="images/screenshots/syntoolkit-1.7.webp" data-lightbox-caption="SynToolkit 1.7" aria-label="Enlarge SynToolkit 1.7 screenshot">
+        <img src="images/screenshots/syntoolkit-1.7.webp" alt="SynToolkit 1.7 dashboard with live hardware graph" width="1600" height="869" decoding="async">
+        <span class="shot-label">SynToolkit 1.7</span>
+      </button>
+      <figcaption>The companion app: live hardware readout, tweak toggles, profiles.</figcaption>
+    </figure>
   </section>
 
-  <div class="wrap" style="margin-bottom:48px">
+  <div class="wrap">
     <div class="notice">
-      <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.008v.008H12v-.008z"/></svg>
-      <div><strong>Read the install guide before downloading.</strong> SynergyOS expects a clean stock Windows install. See <a href="synergyos.html#install" style="color:var(--text);text-decoration:underline;text-underline-offset:3px">requirements and steps</a>.</div>
+      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.008v.008H12v-.008z"/></svg>
+      <div><strong>Read the install guide before downloading.</strong> SynergyOS expects a clean stock Windows install. See <a href="synergyos.html#install">requirements and steps</a>.</div>
     </div>
   </div>
 
   <section class="section wrap reveal" id="stats" aria-labelledby="stats-title">
-    <div class="section-head center">
+    <div class="section-head">
       <div class="eyebrow">Facts</div>
       <h2 class="section-title" id="stats-title">What we can verify</h2>
       <p class="section-lede">Only numbers we can point to. No invented benchmarks.</p>
@@ -113,49 +117,41 @@
   </section>
 
   <section class="section wrap reveal" id="features" aria-labelledby="features-title">
-    <div class="section-head center">
+    <div class="section-head">
       <div class="eyebrow">Features</div>
       <h2 class="section-title" id="features-title">What SynergyOS changes</h2>
       <p class="section-lede">Concrete options. You choose most of them during setup.</p>
     </div>
-    <div class="feature-grid grid-4">
+    <div class="feature-grid">
       <article class="card">
-        <div class="card-icon"><img src="images/icons/performance.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
         <h3>Performance tuning</h3>
         <p>Scheduler, memory, and related tweaks aimed at responsiveness. Results vary by hardware.</p>
       </article>
       <article class="card">
-        <div class="card-icon"><img src="images/icons/privacy.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
         <h3>Privacy hardening</h3>
         <p>Telemetry and advertising IDs reduced at the source. Not a guarantee of total anonymity.</p>
       </article>
       <article class="card">
-        <div class="card-icon"><img src="images/icons/tweaks.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
         <h3>Debloat</h3>
         <p>Removes unused inbox apps and services. Keep Store, Xbox, or Defender if you want them.</p>
       </article>
       <article class="card">
-        <div class="card-icon"><img src="images/icons/appearance.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
         <h3>Customization</h3>
         <p>Opinionated defaults with checkboxes for the rest. You decide what stays.</p>
       </article>
       <article class="card">
-        <div class="card-icon"><img src="images/icons/apps.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
         <h3>Clean-install playbook</h3>
         <p>Applied through AME Wizard on a stock ISO. No custom image rebuild required.</p>
       </article>
       <article class="card">
-        <div class="card-icon"><img src="images/icons/games.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
         <h3>Runtimes included</h3>
         <p>Common Visual C++ and DirectX runtimes so games do not fail on first launch.</p>
       </article>
       <article class="card">
-        <div class="card-icon"><img src="images/icons/tweaks.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
         <h3>Optional security tradeoffs</h3>
         <p>Mitigations, UAC, and VBS toggles exist — off by default. See the risk notes on the SynergyOS page.</p>
       </article>
       <article class="card">
-        <div class="card-icon"><img src="images/icons/apps.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
         <h3>SynToolkit companion</h3>
         <p>Live hardware dashboard, tweak toggles, and utilities on Windows 10 and 11.</p>
       </article>
@@ -163,10 +159,10 @@
   </section>
 
   <section class="section wrap reveal" id="compare" aria-labelledby="compare-title">
-    <div class="section-head center">
+    <div class="section-head">
       <div class="eyebrow">Comparison</div>
       <h2 class="section-title" id="compare-title">Stock Windows vs SynergyOS</h2>
-      <p class="section-lede">Same Windows 11 26H2 base — stock on the left, SynergyOS on the right. Task Manager screenshots from a clean compare run.</p>
+      <p class="section-lede">Same Windows 11 26H2 base, same 4 GB machine. Task Manager on the left is stock; on the right, after a clean SynergyOS apply.</p>
     </div>
     <div class="compare">
       <div class="compare-col">
@@ -174,32 +170,56 @@
         <div class="compare-sub">Windows 11 26H2 · out of the box</div>
         <button type="button" class="compare-shot lightbox-trigger" data-lightbox-src="images/screenshots/stock-26h2.webp" data-lightbox-caption="Stock Windows 11 26H2" aria-label="Enlarge Stock 26H2 screenshot">
           <img src="images/screenshots/stock-26h2.webp" alt="Task Manager on stock Windows 11 26H2 using about 2.8 GB of 4 GB RAM with roughly 160 to 170 processes" width="1600" height="863" loading="lazy" decoding="async">
-          <span class="compare-shot-label">Stock 26H2 · click to enlarge</span>
+          <span class="compare-shot-label">Stock 26H2 · enlarge</span>
         </button>
-        <ul class="compare-list">
-          <li><span class="mark bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M6 18L18 6"/></svg></span> Telemetry and ads enabled by default</li>
-          <li><span class="mark bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M6 18L18 6"/></svg></span> Inbox apps and background services you may not use</li>
-          <li><span class="mark bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M6 18L18 6"/></svg></span> <span>Idle RAM: <em>2.8 GB</em> of 4 GB</span></li>
-          <li><span class="mark bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M6 18L18 6"/></svg></span> <span>~160–170 processes</span></li>
-        </ul>
       </div>
       <div class="compare-col synergy">
         <h3>SynergyOS</h3>
         <div class="compare-sub">Windows 11 26H2 · after a clean apply</div>
         <button type="button" class="compare-shot lightbox-trigger" data-lightbox-src="images/screenshots/synergyos-26h2.webp" data-lightbox-caption="SynergyOS on Windows 11 26H2" aria-label="Enlarge SynergyOS 26H2 screenshot">
           <img src="images/screenshots/synergyos-26h2.webp" alt="Task Manager on SynergyOS 26H2 using about 2.0 GB of 4 GB RAM with roughly 80 to 90 processes and drivers installed" width="1600" height="871" loading="lazy" decoding="async">
-          <span class="compare-shot-label">SynergyOS 26H2 · click to enlarge</span>
+          <span class="compare-shot-label">SynergyOS 26H2 · enlarge</span>
         </button>
-        <ul class="compare-list">
-          <li><span class="mark good" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg></span> Telemetry reduced; optional further hardening</li>
-          <li><span class="mark good" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg></span> Debloated with user-selected keep options</li>
-          <li><span class="mark good" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg></span> Performance tuning and optimization</li>
-          <li><span class="mark good" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg></span> <span>Idle RAM: <em>2.0 GB</em> of 4 GB</span></li>
-          <li><span class="mark good" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg></span> <span>~80–90 processes with drivers installed</span></li>
-        </ul>
       </div>
     </div>
-    <p class="compare-footnote">Measured in a controlled 4 GB environment. Results will vary by hardware and configuration.</p>
+    <table class="compare-table">
+      <caption>Measured in a controlled 4 GB environment · Windows 11 26H2</caption>
+      <thead>
+        <tr>
+          <th scope="col">Measure</th>
+          <th scope="col">Stock Windows</th>
+          <th scope="col">SynergyOS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Telemetry and ads</th>
+          <td>Enabled by default</td>
+          <td>Reduced; optional further hardening</td>
+        </tr>
+        <tr>
+          <th scope="row">Inbox apps and services</th>
+          <td>Installed whether or not you use them</td>
+          <td>Debloated, with user-selected keep options</td>
+        </tr>
+        <tr>
+          <th scope="row">Performance tuning</th>
+          <td>Windows defaults</td>
+          <td>Scheduler and memory tweaks</td>
+        </tr>
+        <tr>
+          <th scope="row">Idle RAM</th>
+          <td class="num">2.8 GB of 4 GB</td>
+          <td class="num">2.0 GB of 4 GB</td>
+        </tr>
+        <tr>
+          <th scope="row">Processes</th>
+          <td class="num">~160–170</td>
+          <td class="num">~80–90 with drivers installed</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="compare-footnote">Results vary by hardware and configuration. Idle means ten minutes after login, nothing open.</p>
   </section>
 
   <section class="section wrap reveal" id="syntoolkit" aria-labelledby="toolkit-title">
@@ -208,13 +228,21 @@
       <h2 class="section-title" id="toolkit-title">Control panel for the playbook</h2>
       <p class="section-lede">WinUI 3 app for Windows 10 and 11 with a live hardware dashboard, real-time graph, and collapsible sidebar. GPL-3.0.</p>
     </div>
-    <div class="shots single">
-      <button type="button" class="shot lightbox-trigger" data-lightbox-src="images/screenshots/syntoolkit-1.7.webp" data-lightbox-caption="SynToolkit 1.7" aria-label="Enlarge SynToolkit 1.7 screenshot">
-        <img src="images/screenshots/syntoolkit-1.7.webp" alt="SynToolkit 1.7 dashboard with live hardware graph" width="1600" height="869" loading="lazy" decoding="async">
-        <span class="shot-label">SynToolkit 1.7 · click to enlarge</span>
-      </button>
+    <div class="rows">
+      <div>
+        <h3>Live hardware</h3>
+        <p>CPU, memory, GPU, and disk read straight from the system with a rolling graph — no background service.</p>
+      </div>
+      <div>
+        <h3>Tweak toggles</h3>
+        <p>Switch the playbook's options on or off after install instead of re-running AME Wizard.</p>
+      </div>
+      <div>
+        <h3>Profiles and updates</h3>
+        <p>Save a set of choices, apply it to another machine, and see what changed between SynergyOS builds.</p>
+      </div>
     </div>
-    <p style="margin-top:20px"><a class="btn btn-secondary" href="syntoolkit.html">SynToolkit details</a></p>
+    <p class="section-actions"><a class="btn btn-secondary" href="syntoolkit.html">SynToolkit details</a></p>
   </section>
 
   <section class="section wrap reveal" id="opensource" aria-labelledby="oss-title">
@@ -223,16 +251,16 @@
       <h2 class="section-title" id="oss-title">Source is public</h2>
       <p class="section-lede">Issues and pull requests welcome. Read the repo docs before large changes.</p>
     </div>
-    <div class="grid-3">
-      <a class="card" href="https://github.com/Synergy-Tweaks/SynergyOS" data-link="synergyos" target="_blank" rel="noopener noreferrer">
+    <div class="rows">
+      <a href="https://github.com/Synergy-Tweaks/SynergyOS" data-link="synergyos" target="_blank" rel="noopener noreferrer">
         <h3>SynergyOS</h3>
-        <p>AME Wizard playbook. See the repository for the playbook license.</p>
+        <p>The playbook itself. See the repository for its license.</p>
       </a>
-      <a class="card" href="https://github.com/Synergy-Tweaks/SynToolkit" data-link="syntoolkit" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/Synergy-Tweaks/SynToolkit" data-link="syntoolkit" target="_blank" rel="noopener noreferrer">
         <h3>SynToolkit</h3>
-        <p>WinUI 3 companion. Licensed under GPL-3.0.</p>
+        <p>WinUI 3 companion app. GPL-3.0.</p>
       </a>
-      <a class="card" href="https://github.com/Synergy-Tweaks" data-link="org" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/Synergy-Tweaks" data-link="org" target="_blank" rel="noopener noreferrer">
         <h3>Contribute</h3>
         <p>Comment on an issue before starting work so effort is not duplicated.</p>
       </a>
@@ -240,33 +268,37 @@
   </section>
 
   <section class="section wrap reveal" id="community" aria-labelledby="community-title">
-    <div class="section-head center">
+    <div class="section-head">
       <div class="eyebrow">Community</div>
       <h2 class="section-title" id="community-title">Discord and YouTube</h2>
       <p class="section-lede">Support, releases, and videos from Kwanteks.</p>
     </div>
-    <div class="cta-actions" style="justify-content:center">
+    <div class="cta-actions">
       <a class="btn btn-primary" href="https://dsc.gg/kwanteks" data-link="discord" target="_blank" rel="noopener noreferrer">Join Discord</a>
       <a class="btn btn-secondary" href="https://www.youtube.com/@kwanteks" data-link="youtube" target="_blank" rel="noopener noreferrer">YouTube</a>
     </div>
   </section>
 
   <section class="section wrap reveal" id="team" aria-labelledby="team-title">
-    <div class="section-head center">
+    <div class="section-head">
       <div class="eyebrow">Team</div>
       <h2 class="section-title" id="team-title">Who builds this</h2>
       <p class="section-lede">Owners &amp; developers below. We appreciate every contributor who helps — their work shows up on GitHub.</p>
     </div>
-    <div class="grid-2" style="margin-bottom:28px">
+    <div class="grid-2">
       <article class="person">
         <div class="avatar"><img src="images/profiles/Kwanteks.png" alt="Kwanteks" width="1080" height="1080" loading="lazy" decoding="async"></div>
-        <h3>Kwanteks</h3>
-        <p>Owner &amp; Developer</p>
+        <div>
+          <h3>Kwanteks</h3>
+          <p>Owner &amp; Developer</p>
+        </div>
       </article>
       <article class="person">
         <div class="avatar"><img src="images/profiles/Bry1k.webp" alt="Bry1k" width="685" height="1024" loading="lazy" decoding="async"></div>
-        <h3>Bry1k</h3>
-        <p>Owner &amp; Developer</p>
+        <div>
+          <h3>Bry1k</h3>
+          <p>Owner &amp; Developer</p>
+        </div>
       </article>
     </div>
     <div class="contributors">
@@ -283,7 +315,7 @@
         </a>
       </div>
     </div>
-    <p style="text-align:center;margin-top:16px"><a href="about.html" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">About the team</a></p>
+    <p class="section-foot"><a href="about.html">About the team</a></p>
   </section>
 
   <div class="wrap">
