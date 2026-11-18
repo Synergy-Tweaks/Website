@@ -17,8 +17,9 @@
 <meta name="twitter:description" content="WinUI 3 companion app for SynergyOS. GPL-3.0.">
 <meta name="twitter:image" content="https://TODO-SET-DOMAIN/images/og.jpg">
 <link rel="icon" href="images/logo-sm.webp" type="image/webp">
+<link rel="preload" href="fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=27">
+<link rel="stylesheet" href="styles.css?v=20">
 <script src="js/config.js"></script>
 </head>
 <body>
@@ -56,7 +57,7 @@
 
 <main id="main">
   <header class="page-hero wrap">
-    <div class="eyebrow">App · WinUI 3 · GPL-3.0</div>
+    <div class="badge badge-accent" style="margin-bottom:14px">App · WinUI 3 · GPL-3.0</div>
     <h1>SynToolkit</h1>
     <p>A Windows 10 and Windows 11 utility with a live hardware dashboard (CPU, RAM, GPU, uptime), a real-time graph, and a collapsible sidebar for tweaks and tools.</p>
   </header>
@@ -66,7 +67,7 @@
       <div class="eyebrow">Features</div>
       <h2 class="section-title" id="feat-title">What it includes</h2>
     </div>
-    <div class="feature-grid">
+    <div class="grid-3 feature-grid">
       <article class="card"><h3>Hardware dashboard</h3><p>Live CPU, RAM, GPU, and uptime readouts.</p></article>
       <article class="card"><h3>Real-time graph</h3><p>Activity graph for quick system glance.</p></article>
       <article class="card"><h3>Collapsible sidebar</h3><p>Navigation that stays out of the way when you need space.</p></article>
@@ -94,7 +95,7 @@
       <div class="eyebrow">Requirements</div>
       <h2 class="section-title" id="req-title">What you need</h2>
     </div>
-    <ul class="req-list">
+    <ul class="card" style="padding:20px 24px;list-style:disc;padding-left:2rem;color:var(--text-dim)">
       <li>Windows 10 or Windows 11</li>
       <li>WinUI 3 runtime (bundled with the installer when provided)</li>
       <li>Requires SynergyOS — designed for it and only works with it</li>
@@ -108,9 +109,10 @@
     </div>
     <article class="download-card">
       <div class="plan-top">
-        <h3>SynToolkit</h3>
-        <span class="badge" data-release="SynToolkit" data-field="version">Latest</span>
+        <span class="badge">Installer</span>
+        <span class="badge badge-accent" data-release="SynToolkit" data-field="version">Latest</span>
       </div>
+      <h3>SynToolkit</h3>
       <p class="desc">Companion app for Windows 10 and Windows 11.</p>
       <ul class="meta-list">
         <li><span>Filename</span><span data-release="SynToolkit" data-field="filename">—</span></li>
@@ -119,9 +121,10 @@
         <li><span>License</span><span>GPL-3.0</span></li>
       </ul>
       <a class="btn btn-primary btn-block" href="https://github.com/Synergy-Tweaks/SynToolkit/releases/latest" data-repo="SynToolkit" data-ext=".exe">Download SynToolkit</a>
-      <p class="download-links">
-        <a href="https://github.com/Synergy-Tweaks/SynToolkit" data-link="syntoolkit" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
-        <a href="https://github.com/Synergy-Tweaks/SynToolkit/releases" data-link="syntoolkit-releases" target="_blank" rel="noopener noreferrer">Previous releases</a>
+      <p style="margin-top:14px;font-size:14px;color:var(--text-dim)">
+        <a href="https://github.com/Synergy-Tweaks/SynToolkit" data-link="syntoolkit" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Source on GitHub</a>
+        ·
+        <a href="https://github.com/Synergy-Tweaks/SynToolkit/releases" data-link="syntoolkit-releases" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Previous releases</a>
       </p>
     </article>
   </section>
@@ -131,7 +134,7 @@
       <div class="eyebrow">License</div>
       <h2 class="section-title" id="license-title">GPL-3.0</h2>
     </div>
-    <div class="prose">
+    <div class="card prose" style="max-width:none">
       <p>SynToolkit is free software under the GNU General Public License v3.0. You can run, study, share, and modify it under that license. See the repository for the full text and copyright notices.</p>
       <p>Credits for third-party libraries used by the app live on the <a href="credits.html">Credits</a> page (fill in as needed).</p>
     </div>
